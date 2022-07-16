@@ -4,12 +4,6 @@
 	"type": "wordpress-plugin",
 	"license": "GPL-3.0-or-later",
 	"authors": [],
-	"repositories": [
-		{
-			"type": "vcs",
-			"url": "https://github.com/AxeWP/wp-graphql-plugin-boilerplate"
-		}
-	],
 	"require": {
 		"php": ">=7.4 || ^8.0",
 		"axepress/wp-graphql-plugin-boilerplate": "0.0.1"
@@ -24,10 +18,10 @@
 		"codeception/module-phpbrowser": "^1.0",
 		"codeception/module-rest": "^2.0",
 		"codeception/module-webdriver": "^1.0",
-		"codeception/phpunit-wrapper": "^8.1",
+		"codeception/phpunit-wrapper": "^9.0",
 		"codeception/util-universalframework": "^1.0",
-		"phpunit/phpunit": "^8.5",
-		"wp-graphql/wp-graphql-testcase": "dev-develop",
+		"phpunit/phpunit": "^9.0",
+		"wp-graphql/wp-graphql-testcase": "^2.3",
 		"dealerdirect/phpcodesniffer-composer-installer": "^0.7",
 		"squizlabs/php_codesniffer": "^3.6",
 		"automattic/vipwpcs": "^2.3",
@@ -41,12 +35,15 @@
 		"php-coveralls/php-coveralls": "^2.5"
 	},
 	"config": {
-		"optimize-autoloader": true,
-		"process-timeout": 0,
 		"allow-plugins": {
 			"dealerdirect/phpcodesniffer-composer-installer": true,
 			"phpstan/extension-installer": true
-		}
+		},
+		"platform": {
+			"php": "7.4"
+		},
+		"process-timeout": 0,
+		"optimize-autoloader": true
 	},
 	"autoload": {
 		"files": [
@@ -88,6 +85,28 @@
 		],
 		"phpstan": [
 			"vendor/bin/phpstan analyze --ansi --memory-limit=1G"
+		]
+	},
+	"archive" : {
+		"name": "wp-graphql-plugin-name",
+		"exclude" : [
+			"/.*",
+			"!.wordpress-org",
+			"bin",
+			"docker",
+			"docs",
+			"phpstan",
+			"plugin-build",
+			"tests",
+			"!vendor",
+			"/codeception.dist.yml",
+			"/codeception.yml",
+			"/composer.json",
+			"/composer.lock",
+			"/docker-compose.yml",
+			"/phpstan.neon.dist",
+			"/phpunit.xml.dist",
+			"/README.md"
 		]
 	}
 }
