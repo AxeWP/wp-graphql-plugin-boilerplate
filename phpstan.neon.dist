@@ -25,5 +25,3 @@ parameters:
 		excludePaths:
 			analyseAndScan:
 				- vendor/*
-		ignoreErrors:
-			- '#^Function apply_filters(_ref_array)? invoked with ([1-9]|1[0-2]) parameters, 2 required\.$#'
