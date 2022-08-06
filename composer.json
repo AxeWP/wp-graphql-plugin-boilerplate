@@ -70,6 +70,7 @@
 			"/composer.json",
 			"/composer.lock",
 			"/phpstan.neon.dist",
+			"/wp-graphql-plugin-name",
 			"README.md"
 		]
 	}
