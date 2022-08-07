@@ -8,12 +8,12 @@
 namespace WPGraphQL\PluginName;
 
 use WPGraphQL\PluginName\Data\Factory;
-use AxeWP\GraphQL\Interfaces\Hookable;
+use AxeWP\GraphQL\Interfaces\Registrable;
 
 /**
  * Class - CoreSchemaFilters
  */
-class CoreSchemaFilters implements Hookable {
+class CoreSchemaFilters implements Registrable {
 	/**
 	 * {@inheritDoc}
 	 */

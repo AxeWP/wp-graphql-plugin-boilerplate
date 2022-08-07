@@ -9,6 +9,7 @@ namespace WPGraphQL\PluginName;
 
 use Exception;
 use AxeWP\GraphQL\Interfaces\GraphQLType;
+use AxeWP\GraphQL\Interfaces\Registrable;
 use WPGraphQL\PluginName\Connection;
 use WPGraphQL\PluginName\Mutation;
 use WPGraphQL\PluginName\Type\Enum;
@@ -207,13 +208,13 @@ class TypeRegistry {
 		}
 
 		foreach ( $classes_to_register as $class ) {
-			if ( ! is_a( $class, GraphQLType::class, true ) ) {
+			if ( ! is_a( $class, Registrable::class, true ) ) {
 				// translators: PHP class.
-				throw new Exception( sprintf( __( 'To be registered to the WPGraphQL Plugin Name GraphQL schema, %s needs to implement \AxeWP\GraphQL\Interfaces\GraphQLType', 'wp-graphql-plugin-name' ), $class ) );
+				throw new Exception( sprintf( __( 'To be registered to the WPGraphQL Plugin Name GraphQL schema, %s needs to implement \AxeWP\GraphQL\Interfaces\Registrable', 'wp-graphql-plugin-name' ), $class ) );
 			}
 
 			// Register the type to the GraphQL schema.
-			$class::register();
+			$class::init();
 
 			// Store the type in the local registry.
 			self::$registry[] = $class;
