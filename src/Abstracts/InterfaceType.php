@@ -19,7 +19,7 @@ abstract class InterfaceType extends Type implements TypeWithFields {
 	 *
 	 * @var ?TypeRegistry
 	 */
-	protected static ?TypeRegistry $type_registry;
+	protected static ?TypeRegistry $type_registry = null;
 
 	/**
 	 * {@inheritDoc}
