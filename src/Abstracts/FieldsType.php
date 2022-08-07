@@ -18,7 +18,7 @@ abstract class FieldsType implements GraphQLType, Registrable, TypeWithFields {
 	/**
 	 * {@inheritDoc}
 	 */
-	public static function register_hooks() : void {
+	public static function init() : void {
 		add_action( 'graphql_register_types', [ static::class, 'register' ] );
 	}
 
