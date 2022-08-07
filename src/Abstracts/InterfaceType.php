@@ -8,7 +8,7 @@
 namespace AxeWP\GraphQL\Abstracts;
 
 use AxeWP\GraphQL\Interfaces\TypeWithFields;
-use \WPGraphQL\Registry\TypeRegistry;
+use WPGraphQL\Registry\TypeRegistry;
 
 /**
  * Class - InterfaceType

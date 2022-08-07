@@ -7,7 +7,7 @@
 
 namespace WPGraphQL\PluginName\Admin\Settings;
 
-use \WPGraphQL\Admin\Settings\SettingsRegistry;
+use WPGraphQL\Admin\Settings\SettingsRegistry;
 
 /**
  * Class - Settings
