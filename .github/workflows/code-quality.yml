@@ -9,6 +9,7 @@ on:
     branches:
       - develop
       - main
+
 jobs:
   run:
     runs-on: ubuntu-latest
@@ -24,8 +25,14 @@ jobs:
         options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
 
     steps:
+      - name: Cancel previous runs of this workflow (pull requests only)
+        if: ${{ github.event_name == 'pull_request' }}
+        uses: styfle/cancel-workflow-action@0.5.0
+        with:
+          access_token: ${{ github.token }}
+
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Setup PHP w/ Composer & WP-CLI
         uses: shivammathur/setup-php@v2
@@ -33,23 +40,13 @@ jobs:
           php-version: 8.0
           extensions: mbstring, intl, bcmath, exif, gd, mysqli, opcache, zip, pdo_mysql
           coverage: none
-          tools: composer, wp-cli
-
-      - name: Get Composer Cache Directory
-        id: composer-cache
-        run: echo "::set-output name=dir::$(composer config cache-files-dir)"
-        working-directory: ./wp-graphql-plugin-name
-
-      - name: Cache dependencies
-        uses: actions/cache@v2
-        with:
-          path: ${{ steps.composer-cache.outputs.dir }}
-          key: php-${{ matrix.php }}-${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
-          restore-keys: php-${{ matrix.php }}N-${{ runner.os }}-composer
+          tools: composer:v2
 
       - name: Install dependencies
-        run: composer install
-        working-directory: ./wp-graphql-plugin-name
+        uses: ramsey/composer-install@v2
+        with:
+          working-directory: ./wp-graphql-plugin-name
+          composer-options: "--no-progress"
 
       - name: Setup WordPress
         run: |
