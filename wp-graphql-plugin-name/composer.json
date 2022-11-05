@@ -6,7 +6,7 @@
 	"authors": [],
 	"require": {
 		"php": ">=7.4 || ^8.0",
-		"axepress/wp-graphql-plugin-boilerplate": "^0.0.4"
+		"axepress/wp-graphql-plugin-boilerplate": "^0.0.5"
 	},
 	"require-dev": {
 		"lucatume/wp-browser": "^3.0",
