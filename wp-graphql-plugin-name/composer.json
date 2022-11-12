@@ -6,7 +6,7 @@
 	"authors": [],
 	"require": {
 		"php": ">=7.4 || ^8.0",
-		"axepress/wp-graphql-plugin-boilerplate": "^0.0.4"
+		"axepress/wp-graphql-plugin-boilerplate": "^0.0.5"
 	},
 	"require-dev": {
 		"lucatume/wp-browser": "^3.0",
@@ -30,7 +30,7 @@
 		"phpstan/phpstan": "^1.2",
 		"phpstan/extension-installer": "^1.1",
 		"szepeviktor/phpstan-wordpress": "^1.0",
-		"poolshark/wp-graphql-stubs": "^0.0.2",
+		"axepress/wp-graphql-stubs": "^1.12.2",
 		"wp-cli/wp-cli-bundle": "^2.6",
 		"php-coveralls/php-coveralls": "^2.5"
 	},

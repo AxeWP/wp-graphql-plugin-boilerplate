@@ -75,6 +75,11 @@ function graphql_pb_constants() : void {
 	if ( ! defined( 'WPGRAPHQL_PB_AUTOLOAD' ) ) {
 		define( 'WPGRAPHQL_PB_AUTOLOAD', true );
 	}
+
+	// The Plugin Boilerplate hook prefix.
+	if ( ! defined( 'AXEWP_PB_HOOK_PREFIX' ) ) {
+		define( 'AXEWP_PB_HOOK_PREFIX', 'graphql_pb' ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedConstantFound
+	}
 }
 
 /**
@@ -92,17 +97,15 @@ function graphql_pb_dependencies_not_ready() : array {
 
 /**
  * Initializes plugin.
- *
- * @return \WPGraphQL\PluginName\Main|false
  */
-function graphql_pb_init() {
+function graphql_pb_init() : void {
 	graphql_pb_constants();
 
 	$not_ready = graphql_pb_dependencies_not_ready();
 
 	if ( empty( $not_ready ) && defined( 'WPGRAPHQL_PB_PLUGIN_DIR' ) ) {
 		require_once WPGRAPHQL_PB_PLUGIN_DIR . 'src/Main.php';
-		return \WPGraphQL\PluginName\Main::instance();
+		return;
 	}
 
 	foreach ( $not_ready as $dep ) {
@@ -125,8 +128,6 @@ function graphql_pb_init() {
 			}
 		);
 	}
-
-	return false;
 }
 
 add_action( 'graphql_init', 'graphql_pb_init' );

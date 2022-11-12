@@ -1,4 +1,4 @@
-name: WordPress Coding Standards
+name: WordPress Coding Standards - Boilerplate
 
 on:
   push:
@@ -36,6 +36,8 @@ jobs:
         uses: ramsey/composer-install@v2
         with:
           composer-options: "--no-progress"
+          working-directory: ./wp-graphql-plugin-name
 
       - name: Run PHP_CodeSniffer
         run: composer run-script check-cs
+        working-directory: ./wp-graphql-plugin-name
