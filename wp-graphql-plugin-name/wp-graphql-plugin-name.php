@@ -78,7 +78,7 @@ function graphql_pb_constants() : void {
 
 	// The Plugin Boilerplate hook prefix.
 	if ( ! defined( 'AXEWP_PB_HOOK_PREFIX' ) ) {
-		define( 'AXEWP_PB_HOOK_PREFIX', 'graphql_pb' );
+		define( 'AXEWP_PB_HOOK_PREFIX', 'graphql_pb' ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedConstantFound
 	}
 }
 
