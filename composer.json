@@ -1,7 +1,7 @@
 {
 	"name": "axepress/wp-graphql-plugin-boilerplate",
 	"description": "Boilerplate for creating WPGraphQL extensions",
-	"type": "wordpress-plugin",
+	"type": "library",
 	"license": "GPL-3.0-or-later",
 	"authors": [
 		{
