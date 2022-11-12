@@ -7,9 +7,11 @@
 
 namespace AxeWP\GraphQL\Helper;
 
-/**
- * Class - Helper
- */
-class Helper {
+if ( ! class_exists( '\AxeWP\GraphQL\Helper\Helper' ) ) {
 
+	/**
+	 * Class - Helper
+	 */
+	class Helper {
+	}
 }
