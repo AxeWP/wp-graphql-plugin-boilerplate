@@ -2,6 +2,7 @@
 /docker export-ignore
 /docs export-ignore
 /wp-graphql-plugin-name export-ignore
+/wp-graphql-plugin-boilerplate.php export-ignore
 /composer.lock export-ignore
 /phpstan.neon.dist export-ignore
 /phpunit.xml.dist export-ignore
