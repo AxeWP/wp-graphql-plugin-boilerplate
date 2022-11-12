@@ -7,6 +7,7 @@
 
 namespace AxeWP\GraphQL\Traits;
 
+use AxeWP\GraphQL\Helper\Helper;
 use Exception;
 
 if ( ! trait_exists( '\AxeWP\GraphQL\Traits\TypeNameTrait' ) ) {
@@ -31,6 +32,8 @@ if ( ! trait_exists( '\AxeWP\GraphQL\Traits\TypeNameTrait' ) ) {
 			// @phpstan-ignore-next-line
 			$type_name = static::type_name();
 
+			$hook_prefix = Helper::hook_prefix();
+
 			/**
 			 * Filter the GraphQL type name.
 			 *
@@ -39,7 +42,7 @@ if ( ! trait_exists( '\AxeWP\GraphQL\Traits\TypeNameTrait' ) ) {
 			 * @param string $prefix the prefix for the type.
 			 * @param string $type the GraphQL type name.
 			 */
-			return apply_filters( 'graphql_pb_type_prefix', '', $type_name ) . $type_name;
+			return apply_filters( $hook_prefix . '_type_prefix', '', $type_name ) . $type_name; // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals
 		}
 	}
 }
