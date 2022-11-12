@@ -17,7 +17,7 @@ if ( ! class_exists( '\AxeWP\GraphQL\Helper\Helper' ) ) {
 		 * Gets the hook prefix for the plugin.
 		 */
 		public static function hook_prefix() : string {
-			return defined( 'WPGRAPHQL_PB_HOOK_PREFIX' ) ? WPGRAPHQL_PB_HOOK_PREFIX : 'graphql_pb';
+			return defined( 'AXEWP_PB_HOOK_PREFIX' ) ? AXEWP_PB_HOOK_PREFIX : 'graphql_pb';
 		}
 	}
 }

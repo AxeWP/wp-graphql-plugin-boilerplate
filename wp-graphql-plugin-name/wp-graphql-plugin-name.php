@@ -75,6 +75,11 @@ function graphql_pb_constants() : void {
 	if ( ! defined( 'WPGRAPHQL_PB_AUTOLOAD' ) ) {
 		define( 'WPGRAPHQL_PB_AUTOLOAD', true );
 	}
+
+	// The Plugin Boilerplate hook prefix.
+	if ( ! defined( 'AXEWP_PB_HOOK_PREFIX' ) ) {
+		define( 'AXEWP_PB_HOOK_PREFIX', 'graphql_pb' );
+	}
 }
 
 /**
