@@ -1,4 +1,4 @@
-name: Code Quality
+name: Code Quality - Boilerplate
 
 on:
   push:
@@ -14,6 +14,15 @@ jobs:
   run:
     runs-on: ubuntu-latest
     name: Check code
+    services:
+      mariadb:
+        image: mariadb
+        ports:
+          - 3306:3306
+        env:
+          MYSQL_ROOT_PASSWORD: root
+        # Ensure docker waits for mariadb to start
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
 
     steps:
       - name: Cancel previous runs of this workflow (pull requests only)
@@ -36,7 +45,19 @@ jobs:
       - name: Install dependencies
         uses: ramsey/composer-install@v2
         with:
+          working-directory: ./wp-graphql-plugin-name
           composer-options: "--no-progress"
 
+      - name: Setup WordPress
+        run: |
+          cp .env.dist .env
+          composer run install-stan-env
+          cp -R . /tmp/wordpress/wp-content/plugins/wp-graphql-plugin-name
+          rm -rf /tmp/wordpress/wp-content/plugins/wp-graphql-plugin-name/vendor/axepress/wp-graphql-plugin-boilerplate
+          cp -R .. /tmp/wordpress/wp-content/plugins/wp-graphql-plugin-name/vendor/axepress/wp-graphql-plugin-boilerplate
+
+        working-directory: ./wp-graphql-plugin-name
+
       - name: Run PHPStan
+        working-directory: /tmp/wordpress/wp-content/plugins/wp-graphql-plugin-name
         run: composer run-script phpstan

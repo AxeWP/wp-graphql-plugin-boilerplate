@@ -19,9 +19,8 @@ parameters:
 			- wp-graphql-plugin-name/access-functions.php
 			- wp-graphql-plugin-name/src/
 			- src/
-		scanDirectories:
-			- src/
-			- ../wp-graphql/
+		scanFiles:
+			- vendor/axepress/wp-graphql-stubs/wp-graphql-stubs.php
 		excludePaths:
 			analyseAndScan:
 				- vendor/*

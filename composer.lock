@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1ed2408972c54c5b0eef00876bdbdfb8",
+    "content-hash": "f7e2cb220fc5ac1bb748d8fbbc800982",
     "packages": [],
     "packages-dev": [
         {
@@ -58,6 +58,58 @@
                 "wiki": "https://github.com/Automattic/VIP-Coding-Standards/wiki"
             },
             "time": "2021-09-29T16:20:23+00:00"
+        },
+        {
+            "name": "axepress/wp-graphql-stubs",
+            "version": "v1.12.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/AxeWP/wp-graphql-stubs.git",
+                "reference": "e035e47fd9eb1f0420933593ddf00e73e12c9d73"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/AxeWP/wp-graphql-stubs/zipball/e035e47fd9eb1f0420933593ddf00e73e12c9d73",
+                "reference": "e035e47fd9eb1f0420933593ddf00e73e12c9d73",
+                "shasum": ""
+            },
+            "require": {
+                "php-stubs/wordpress-stubs": "^5.4 || ^6.0"
+            },
+            "require-dev": {
+                "php": "~7.3 || ~8.0",
+                "php-stubs/generator": "^0.8.0",
+                "phpstan/phpstan": "^1.8"
+            },
+            "suggest": {
+                "szepeviktor/phpstan-wordpress": "WordPress extensions for PHPStan"
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "WPGraphQL function and class declaration stubs for static analysis.",
+            "homepage": "https://github.com/axewp/wp-graphql-stubs",
+            "keywords": [
+                "PHPStan",
+                "graphql",
+                "static analysis",
+                "wordpress",
+                "wp-graphql",
+                "wpgraphql"
+            ],
+            "support": {
+                "issues": "https://github.com/AxeWP/wp-graphql-stubs/issues",
+                "source": "https://github.com/AxeWP/wp-graphql-stubs/tree/v1.12.2"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/AxeWp",
+                    "type": "github"
+                }
+            ],
+            "time": "2022-11-11T12:50:20+00:00"
         },
         {
             "name": "composer/ca-bundle",
@@ -1427,41 +1479,6 @@
                 }
             ],
             "time": "2022-11-10T09:56:11+00:00"
-        },
-        {
-            "name": "poolshark/wp-graphql-stubs",
-            "version": "v0.0.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Poolshark/wp-graphql-stubs.git",
-                "reference": "66ba54188d04788849abd07bfc9fff511839cdb3"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Poolshark/wp-graphql-stubs/zipball/66ba54188d04788849abd07bfc9fff511839cdb3",
-                "reference": "66ba54188d04788849abd07bfc9fff511839cdb3",
-                "shasum": ""
-            },
-            "require-dev": {
-                "php": "^7.4"
-            },
-            "type": "library",
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Flo Ragossnig",
-                    "email": "florian@webleaders.at"
-                }
-            ],
-            "description": "WP GraphQL Stubs for VS Code and others.",
-            "support": {
-                "issues": "https://github.com/Poolshark/wp-graphql-stubs/issues",
-                "source": "https://github.com/Poolshark/wp-graphql-stubs/tree/v0.0.2"
-            },
-            "time": "2021-03-20T07:43:55+00:00"
         },
         {
             "name": "psr/container",
