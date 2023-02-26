@@ -1,6 +1,9 @@
-/tests export-ignore
+/.github export-ignore
+/assets export-ignore
+/bin export-ignore
 /docker export-ignore
 /docs export-ignore
+/tests export-ignore
 /wp-graphql-plugin-name export-ignore
 /wp-graphql-plugin-boilerplate.php export-ignore
 /composer.lock export-ignore
@@ -11,6 +14,6 @@
 /.dockerignore export-ignore
 /.env.dist export-ignore
 /.gitattributes export-ignore
-/.github export-ignore
 /.gitignore export-ignore
 /.phpcs.xml.dist export-ignore
+/README.md export-ignore
