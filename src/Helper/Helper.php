@@ -34,7 +34,7 @@ if ( ! class_exists( '\AxeWP\GraphQL\Helper\Helper' ) ) {
 		 */
 		public static function hook_prefix() : string {
 			if ( empty( self::$hook_prefix ) ) {
-				_doing_it_wrong( __METHOD__, esc_html__( 'The hook prefix has not been set. Use set_hook_prefix() to set it.', 'wp-graphql-plugin-name' ), '@todo' );
+				_doing_it_wrong( __METHOD__, esc_html__( 'The hook prefix has not been set. Use set_hook_prefix() to set it.', 'wp-graphql-plugin-name' ), '0.0.8' );
 
 				self::$hook_prefix = defined( 'AXEWP_PB_HOOK_PREFIX' ) ? AXEWP_PB_HOOK_PREFIX : 'graphql_pb';
 			}

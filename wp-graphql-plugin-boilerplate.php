@@ -7,7 +7,7 @@
  * Author: AxePress
  * Author URI: https://github.com/AxeWP
  * Update URI: https://github.com/AxeWP/wp-graphql-boilerplate
- * Version: 0.0.7
+ * Version: 0.0.8
  * Text Domain: wp-graphql-plugin-name
  * Domain Path: /languages
  * Requires at least: 5.4.1
@@ -20,7 +20,7 @@
  * @package WPGraphQL\PluginName
  * @author axepress, justlevine
  * @license GPL-3
- * @version 0.0.7
+ * @version 0.0.8
  */
 
 // Pass through to plugin.
