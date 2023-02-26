@@ -18,6 +18,9 @@ phpcs.xml
 phpunit.xml
 phpstan.neon
 
+# Strauss
+bin/strauss.phar
+
 # Directory to generate the dist zipfile
 plugin-build
 

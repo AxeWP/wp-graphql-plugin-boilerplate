@@ -8,7 +8,7 @@
 namespace WPGraphQL\PluginName;
 
 use WPGraphQL\PluginName\Data\Factory;
-use AxeWP\GraphQL\Interfaces\Registrable;
+use WPGraphQL\PluginName\Vendor\AxeWP\GraphQL\Interfaces\Registrable;
 
 /**
  * Class - CoreSchemaFilters

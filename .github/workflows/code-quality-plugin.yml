@@ -55,7 +55,7 @@ jobs:
           cp -R . /tmp/wordpress/wp-content/plugins/wp-graphql-plugin-name
           rm -rf /tmp/wordpress/wp-content/plugins/wp-graphql-plugin-name/vendor/axepress/wp-graphql-plugin-boilerplate
           cp -R .. /tmp/wordpress/wp-content/plugins/wp-graphql-plugin-name/vendor/axepress/wp-graphql-plugin-boilerplate
-
+          composer run-script @strauss
         working-directory: ./wp-graphql-plugin-name
 
       - name: Run PHPStan

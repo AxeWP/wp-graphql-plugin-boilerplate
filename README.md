@@ -35,9 +35,70 @@ Inspired by the following projects and their contributors:
 ## Getting Started
 
 ### As a Composer dependency
-```console
-composer require axepress/wp-graphql-plugin-boilerplate
+
+We recommend installing this boilerplate using Strauss, to prevent plugin conflicts with other libraries.
+For more information see this [explainer from StellarWP](https://github.com/stellarwp/global-docs/blob/main/docs/strauss-setup.md).
+
+#### 1. Add the dependency to your project.
+
+```bash
+composer require axewp/wp-graphql-plugin-boilerplate
 ```
+
+#### 2. Configure Strauss.
+
+1. Add the following scripts to composer .json:
+```json
+"scripts": {
+  "strauss": [
+    "test -f ./bin/strauss.phar || curl -o bin/strauss.phar -L -C - https://github.com/BrianHenryIE/strauss/releases/download/0.13.0/strauss.phar",
+    "@php bin/strauss.phar"
+  ],
+  "post-install-cmd": [
+    "@strauss"
+  ],
+  "post-update-cmd": [
+    "@strauss"
+  ]
+}
+```
+
+2. Add the strauss config to "extra" in composer.json:
+```json
+"extra": {
+  "strauss": {
+    "target_directory": "vendor-prefixed",
+    "namespace_prefix": "WPGraphQL\\PluginName\\Vendor\\",
+    "classmap_prefix": "WPGraphQL_PluginName",
+    "constant_prefix": "GRAPHQL_PB",
+    "include_modified_date": false,
+    "delete_vendor_files": true,
+    "packages": [
+      "axepress/wp-graphql-plugin-boilerplate"
+    ],
+    "excluded_from_prefix": {
+      "file_patterns": []
+    }
+  }
+},
+```
+
+3. Include the autoloader in your composer.json's classmap.
+
+```diff
+"autoload": {
+  "files": [
+    "access-functions.php"
+  ],
+  "psr-4": {
+    "WPGraphQL\\PluginName\\": "src/"
+  },
++  "classmap": [
++    "vendor-prefixed/"
++  ]
+},
+```
+
 
 ### As a plugin starter
 
@@ -119,6 +180,9 @@ wp-graphql-plugin-name                # This will be renamed by `create-plugin` 
 │   ├── bootstrap.php
 │   ├── unit.suite.dist.yml
 │   └── wpunit.suite.dist.yml
+├── vendor                            # Composer dependencies
+│  └── composer/autoload.php          # Composer autoloader
+├── vendor-prefixed                   # Namespaced dependencies, including the wrapped AxeWP classes from this package.
 ├── .distignore
 ├── .env.dist
 ├── .gitattributes

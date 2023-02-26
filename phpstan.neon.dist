@@ -17,6 +17,7 @@ parameters:
 			- wp-graphql-plugin-name/deactivation.php
 			- wp-graphql-plugin-name/wp-graphql-plugin-name.php
 			- wp-graphql-plugin-name/access-functions.php
+			- wp-graphql-plugin-name/vendor-prefixed/
 			- wp-graphql-plugin-name/src/
 			- src/
 		scanFiles:

@@ -6,7 +6,7 @@
 	"authors": [],
 	"require": {
 		"php": ">=7.4 || ^8.0",
-		"axepress/wp-graphql-plugin-boilerplate": "^0.0.7"
+		"axepress/wp-graphql-plugin-boilerplate": "dev-develop"
 	},
 	"require-dev": {
 		"lucatume/wp-browser": "^3.0",
@@ -51,7 +51,10 @@
 		],
 		"psr-4": {
 			"WPGraphQL\\PluginName\\": "src/"
-		}
+		},
+		"classmap": [
+			"vendor-prefixed/"
+		]
 	},
 	"autoload-dev": {
 		"psr-4": {
@@ -85,11 +88,37 @@
 		],
 		"phpstan": [
 			"vendor/bin/phpstan analyze --ansi --memory-limit=1G"
+		],
+		"strauss": [
+			"test -f ./bin/strauss.phar || curl -o bin/strauss.phar -L -C - https://github.com/BrianHenryIE/strauss/releases/download/0.13.0/strauss.phar",
+			"@php bin/strauss.phar"
+		],
+		"post-install-cmd": [
+			"@strauss"
+		],
+		"post-update-cmd": [
+			"@strauss"
 		]
 	},
-	"archive" : {
+	"extra": {
+		"strauss": {
+			"target_directory": "vendor-prefixed",
+			"namespace_prefix": "WPGraphQL\\PluginName\\Vendor\\",
+			"classmap_prefix": "WPGraphQL_PluginName",
+			"constant_prefix": "GRAPHQL_PB",
+			"include_modified_date": false,
+			"delete_vendor_files": true,
+			"packages": [
+				"axepress/wp-graphql-plugin-boilerplate"
+			],
+			"excluded_from_prefix": {
+				"file_patterns": []
+			}
+		}
+	},
+	"archive": {
 		"name": "wp-graphql-plugin-name",
-		"exclude" : [
+		"exclude": [
 			"/.*",
 			"!.wordpress-org",
 			"bin",

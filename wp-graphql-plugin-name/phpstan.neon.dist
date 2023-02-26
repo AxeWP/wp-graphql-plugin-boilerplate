@@ -21,7 +21,8 @@ parameters:
 			- activation.php
 			- deactivation.php
 			- src/
+		scanFiles:
+			- vendor/axepress/wp-graphql-stubs/wp-graphql-stubs.php
 		scanDirectories:
 			- src/
-			- ../wp-graphql/
-			- vendor/axepress/wp-graphql-plugin-boilerplate/src/
+			- vendor-prefixed/axepress/wp-graphql-plugin-boilerplate/src/
