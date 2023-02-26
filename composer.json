@@ -40,9 +40,6 @@
 		"process-timeout": 0,
 		"optimize-autoloader": true
 	},
-	"bin": [
-		"bin/create-wpgraphql-plugin.sh"
-	],
 	"autoload": {
 		"psr-4": {
 			"AxeWP\\GraphQL\\": "src/"
