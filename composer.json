@@ -68,11 +68,13 @@
 		"name": "wp-graphql-plugin-boilerplate",
 		"exclude": [
 			"/.*",
+			"/assets",
+			"/bin",
+			"/wp-graphql-plugin-name",
 			"/composer.json",
 			"/composer.lock",
 			"/phpstan.neon.dist",
-			"/wp-graphql-plugin-name",
-			"README.md"
+			"/README.md"
 		]
 	}
 }
