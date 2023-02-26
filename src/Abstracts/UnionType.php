@@ -22,7 +22,7 @@ if ( ! class_exists( '\AxeWP\GraphQL\Abstracts\UnionType' ) ) {
 		 *
 		 * @var ?\WPGraphQL\Registry\TypeRegistry
 		 */
-		protected static $type_registry = null;
+		protected static $type_registry;
 
 		/**
 		 * Gets the array of possible GraphQL types that can be resolved to.
@@ -34,7 +34,7 @@ if ( ! class_exists( '\AxeWP\GraphQL\Abstracts\UnionType' ) ) {
 		/**
 		 * {@inheritDoc}
 		 *
-		 * @param \WPGraphQL\Registry\TypeRegistry $type_registry The WPGraphQL TypeRegistry instance.
+		 * @param \WPGraphQL\Registry\TypeRegistry|null $type_registry The WPGraphQL TypeRegistry instance.
 		 */
 		public static function register( $type_registry = null ) : void {
 			self::$type_registry = $type_registry;
