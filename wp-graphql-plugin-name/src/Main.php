@@ -8,6 +8,7 @@
 namespace WPGraphQL\PluginName;
 
 use WPGraphQL\PluginName\Admin\Settings\Settings;
+use WPGraphQL\PluginName\Vendor\AxeWP\GraphQL\Helper\Helper;
 
 if ( ! class_exists( 'WPGraphQL\PluginName\Main' ) ) :
 
@@ -65,6 +66,9 @@ if ( ! class_exists( 'WPGraphQL\PluginName\Main' ) ) :
 		 * @codeCoverageIgnore
 		 */
 		private function setup() : void {
+			// Setup boilerplate typename hook.
+			Helper::set_hook_prefix( 'graphql_pb' );
+
 			// Setup plugin.
 			CoreSchemaFilters::init();
 			Settings::init();

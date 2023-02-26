@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1ac370fa269cd0f9b00838c2e0d9e3c0",
+    "content-hash": "6da3dd4f57e4053c851f873ae050b102",
     "packages": [
         {
             "name": "axepress/wp-graphql-plugin-boilerplate",
@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/AxeWP/wp-graphql-plugin-boilerplate.git",
-                "reference": "0930ba24df93dc843cb2d3d79fdec91525b249df"
+                "reference": "2ded496a50453c15551a3b48c87e642c7e128b7f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/AxeWP/wp-graphql-plugin-boilerplate/zipball/0930ba24df93dc843cb2d3d79fdec91525b249df",
-                "reference": "0930ba24df93dc843cb2d3d79fdec91525b249df",
+                "url": "https://api.github.com/repos/AxeWP/wp-graphql-plugin-boilerplate/zipball/2ded496a50453c15551a3b48c87e642c7e128b7f",
+                "reference": "2ded496a50453c15551a3b48c87e642c7e128b7f",
                 "shasum": ""
             },
             "require": {
@@ -68,7 +68,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-02-26T11:00:13+00:00"
+            "time": "2023-02-26T14:18:08+00:00"
         }
     ],
     "packages-dev": [

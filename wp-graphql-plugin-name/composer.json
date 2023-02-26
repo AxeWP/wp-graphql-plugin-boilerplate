@@ -104,15 +104,15 @@
 		"strauss": {
 			"target_directory": "vendor-prefixed",
 			"namespace_prefix": "WPGraphQL\\PluginName\\Vendor\\",
-			"classmap_prefix": "WPGraphQL_PluginName",
-			"constant_prefix": "GRAPHQL_PB",
+			"classmap_prefix": "WPGraphQL_PluginName_",
+			"constant_prefix": "GRAPHQL_PB_",
 			"include_modified_date": false,
 			"delete_vendor_files": true,
 			"packages": [
 				"axepress/wp-graphql-plugin-boilerplate"
 			],
 			"excluded_from_prefix": {
-				"file_patterns": []
+				"file_patterns": ["/psr.*/"]
 			}
 		}
 	},
