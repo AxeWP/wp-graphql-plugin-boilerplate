@@ -46,4 +46,6 @@
 			<property name="text_domain" type="array" value="wp-graphql-plugin-name"/>
 		</properties>
 	</rule>
+	<!-- Use FQCN for PHPDoc types -->
+	<rule ref="SlevomatCodingStandard.Namespaces.FullyQualifiedClassNameInAnnotation"/>
 </ruleset>
