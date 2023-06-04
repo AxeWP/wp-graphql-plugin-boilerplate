@@ -106,7 +106,7 @@ function graphql_pb_init() : void {
 	foreach ( $not_ready as $dep ) {
 		add_action(
 			'admin_notices',
-			function() use ( $dep ) {
+			function () use ( $dep ) {
 				?>
 				<div class="error notice">
 					<p>

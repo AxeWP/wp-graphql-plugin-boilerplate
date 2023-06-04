@@ -28,7 +28,7 @@ if ( ! trait_exists( '\AxeWP\GraphQL\Traits\TypeResolverTrait' ) ) {
 			/**
 			 * @param mixed       $value The value from the resolver of the parent field.
 			 */
-			return static function( $value ) {
+			return static function ( $value ) {
 				if ( ! static::$type_registry instanceof \WPGraphQL\Registry\TypeRegistry ) {
 					throw new Error(
 						sprintf(
