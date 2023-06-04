@@ -16,20 +16,9 @@ if ( ! class_exists( '\AxeWP\GraphQL\Abstracts\InterfaceType' ) ) {
 	 */
 	abstract class InterfaceType extends Type implements TypeWithFields {
 		/**
-		 * The WPGraphQL TypeRegistry instance.
-		 *
-		 * @var ?\WPGraphQL\Registry\TypeRegistry
-		 */
-		protected static $type_registry;
-
-		/**
 		 * {@inheritDoc}
-		 *
-		 * @param \WPGraphQL\Registry\TypeRegistry|null $type_registry The WPGraphQL TypeRegistry instance.
 		 */
-		public static function register( $type_registry = null ): void {
-			self::$type_registry = $type_registry;
-
+		public static function register(): void {
 			register_graphql_interface_type( static::get_type_name(), static::get_type_config() );
 		}
 

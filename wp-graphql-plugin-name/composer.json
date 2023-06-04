@@ -5,7 +5,7 @@
 	"license": "GPL-3.0-or-later",
 	"authors": [],
 	"require": {
-		"php": ">=7.4 || ^8.0",
+		"php": ">=7.4 || ^8.0 || 8.1",
 		"axepress/wp-graphql-plugin-boilerplate": "dev-develop"
 	},
 	"require-dev": {
@@ -22,16 +22,13 @@
 		"codeception/util-universalframework": "^1.0",
 		"phpunit/phpunit": "^9.0",
 		"wp-graphql/wp-graphql-testcase": "^2.3",
-		"dealerdirect/phpcodesniffer-composer-installer": "^0.7",
-		"squizlabs/php_codesniffer": "^3.6",
-		"automattic/vipwpcs": "^2.3",
-		"wp-coding-standards/wpcs": "^2.3",
-		"phpcompatibility/phpcompatibility-wp": "^2.1",
 		"phpstan/phpstan": "^1.2",
 		"phpstan/extension-installer": "^1.1",
 		"szepeviktor/phpstan-wordpress": "^1.0",
 		"axepress/wp-graphql-stubs": "^1.12.2",
-		"wp-cli/wp-cli-bundle": "^2.6",
+		"axepress/wp-graphql-cs": "dev-main",
+		"wp-cli/wp-cli-bundle": "^2.7",
+		"wp-cli/wp-cli": "dev-main",
 		"php-coveralls/php-coveralls": "^2.5"
 	},
 	"config": {
@@ -90,7 +87,7 @@
 			"vendor/bin/phpstan analyze --ansi --memory-limit=1G"
 		],
 		"strauss": [
-			"test -f ./bin/strauss.phar || curl -o bin/strauss.phar -L -C - https://github.com/BrianHenryIE/strauss/releases/download/0.13.0/strauss.phar",
+			"test -f ./bin/strauss.phar || curl -o bin/strauss.phar -L -C - https://github.com/BrianHenryIE/strauss/releases/download/0.14.0/strauss.phar",
 			"@php bin/strauss.phar"
 		],
 		"post-install-cmd": [

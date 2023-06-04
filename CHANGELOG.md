@@ -1,6 +1,7 @@
 # Changelog
 
 # Unreleased
+* dev: remove `static::$type_registry` property in favor of `WPGraphQL::get_type_registry()`.
 * chore: Implement `axepress/wp-graphql-cs` ruleset for PHP_CodeSniffer.
 
 ## v0.0.8
