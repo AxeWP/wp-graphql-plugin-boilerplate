@@ -26,17 +26,17 @@ if ( ! class_exists( 'WPGraphQL\PluginName\Main' ) ) :
 		/**
 		 * Constructor
 		 */
-		public static function instance() : self {
+		public static function instance(): self {
 			if ( ! isset( self::$instance ) || ! ( is_a( self::$instance, self::class ) ) ) {
 				// You cant test a singleton.
-				// @codeCoverageIgnoreStart
+				// @codeCoverageIgnoreStart .
 				if ( ! function_exists( 'is_plugin_active' ) ) {
 					require_once ABSPATH . 'wp-admin/includes/plugin.php';
 				}
 				self::$instance = new self();
 				self::$instance->includes();
 				self::$instance->setup();
-				// @codeCoverageIgnoreEnd
+				// @codeCoverageIgnoreEnd .
 			}
 
 			/**
@@ -54,7 +54,7 @@ if ( ! class_exists( 'WPGraphQL\PluginName\Main' ) ) :
 		 *
 		 * @codeCoverageIgnore
 		 */
-		private function includes() : void {
+		private function includes(): void {
 			if ( defined( 'WPGRAPHQL_PB_AUTOLOAD' ) && false !== WPGRAPHQL_PB_AUTOLOAD && defined( 'WPGRAPHQL_PB_PLUGIN_DIR' ) ) {
 				require_once WPGRAPHQL_PB_PLUGIN_DIR . 'vendor/autoload.php';
 			}
@@ -65,7 +65,7 @@ if ( ! class_exists( 'WPGraphQL\PluginName\Main' ) ) :
 		 *
 		 * @codeCoverageIgnore
 		 */
-		private function setup() : void {
+		private function setup(): void {
 			// Setup boilerplate typename hook.
 			Helper::set_hook_prefix( 'graphql_pb' );
 
@@ -96,7 +96,7 @@ if ( ! class_exists( 'WPGraphQL\PluginName\Main' ) ) :
 		 *
 		 * @codeCoverageIgnore
 		 */
-		public function __wakeup() : void {
+		public function __wakeup(): void {
 			// De-serializing instances of the class is forbidden.
 			_doing_it_wrong( __FUNCTION__, esc_html__( 'De-serializing instances of the plugin Main class is not allowed.', 'wp-graphql-plugin-name' ), '0.0.1' );
 		}

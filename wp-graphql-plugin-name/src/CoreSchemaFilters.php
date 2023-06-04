@@ -16,7 +16,7 @@ class CoreSchemaFilters implements Registrable {
 	/**
 	 * {@inheritDoc}
 	 */
-	public static function init() : void {
+	public static function init(): void {
 		add_filter( 'graphql_pb_type_prefix', [ self::class, 'get_type_prefix' ] );
 	}
 
@@ -25,7 +25,7 @@ class CoreSchemaFilters implements Registrable {
 	 *
 	 * @param string $type_name the non-prefixed type name.
 	 */
-	public static function get_type_prefix( string $type_name = null ) : string {
+	public static function get_type_prefix( string $type_name = null ): string {
 		return ! empty( $type_name ) ? $type_name : 'PluginName';
 	}
 }

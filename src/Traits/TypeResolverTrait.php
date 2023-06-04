@@ -18,13 +18,12 @@ if ( ! trait_exists( '\AxeWP\GraphQL\Traits\TypeResolverTrait' ) ) {
 	 * @property ?\WPGraphQL\Registry\TypeRegistry $type_registry The WPGraphQL TypeRegistry instance.
 	 */
 	trait TypeResolverTrait {
-
 		/**
 		 * The function used to resolve the Interface type in the `resolveType` callback.
 		 *
 		 * @throws \Error If $type_registry is not set.
 		 */
-		protected static function get_type_resolver() : Closure {
+		protected static function get_type_resolver(): Closure {
 			/**
 			 * @param mixed       $value The value from the resolver of the parent field.
 			 */

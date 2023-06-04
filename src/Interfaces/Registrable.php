@@ -18,6 +18,6 @@ if ( ! interface_exists( '\AxeWP\GraphQL\Interfaces\Registrable' ) ) {
 		 *
 		 * WordPress actions/filters should be included here.
 		 */
-		public static function init() : void;
+		public static function init(): void;
 	}
 }

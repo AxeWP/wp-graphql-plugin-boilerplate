@@ -22,6 +22,6 @@ if ( ! interface_exists( '\AxeWP\GraphQL\Interfaces\TypeWithInputFields' ) ) {
 		 *   defaultValue?: string
 		 * }>
 		 */
-		public static function get_fields() : array;
+		public static function get_fields(): array;
 	}
 }

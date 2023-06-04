@@ -16,6 +16,6 @@ if ( ! interface_exists( '\AxeWP\GraphQL\Interfaces\GraphQLType' ) ) {
 		/**
 		 * Register connections to the GraphQL Schema.
 		 */
-		public static function register() : void;
+		public static function register(): void;
 	}
 }

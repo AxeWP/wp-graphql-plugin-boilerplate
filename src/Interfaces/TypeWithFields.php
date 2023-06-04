@@ -28,6 +28,6 @@ if ( ! interface_exists( '\AxeWP\GraphQL\Interfaces\TypeWithFields' ) ) {
 		 *   deprecationReason?: string,
 		 * }>
 		 */
-		public static function get_fields() : array;
+		public static function get_fields(): array;
 	}
 }
