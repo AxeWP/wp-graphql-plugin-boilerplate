@@ -44,8 +44,6 @@ jobs:
 
       - name: Install dependencies
         uses: ramsey/composer-install@v2
-        env:
-          COMPOSER: ${{ github.workspace }}/wp-graphql-plugin-name/composer-ci.json
         with:
           working-directory: ./wp-graphql-plugin-name
           composer-options: "--no-progress"

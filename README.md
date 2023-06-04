@@ -28,7 +28,7 @@ Inspired by the following projects and their contributors:
 
 ## System Requirements
 
-* PHP 7.4+ | 8.0
+* PHP 7.4+ | 8.0+ | 8.1+
 * WordPress 5.4.1+
 * WPGraphQL 1.8.0+
 
@@ -51,7 +51,7 @@ composer require axewp/wp-graphql-plugin-boilerplate
 ```json
 "scripts": {
   "strauss": [
-    "test -f ./bin/strauss.phar || curl -o bin/strauss.phar -L -C - https://github.com/BrianHenryIE/strauss/releases/download/0.13.0/strauss.phar",
+    "test -f ./bin/strauss.phar || curl -o bin/strauss.phar -L -C - https://github.com/BrianHenryIE/strauss/releases/download/0.14.0/strauss.phar",
     "@php bin/strauss.phar"
   ],
   "post-install-cmd": [
@@ -70,7 +70,7 @@ composer require axewp/wp-graphql-plugin-boilerplate
     "target_directory": "vendor-prefixed",
     "namespace_prefix": "WPGraphQL\\PluginName\\Vendor\\",
     "classmap_prefix": "WPGraphQL_PluginName",
-    "constant_prefix": "GRAPHQL_PB",
+    "constant_prefix": "GRAPHQL_PLUGINNAME",
     "include_modified_date": false,
     "delete_vendor_files": true,
     "packages": [

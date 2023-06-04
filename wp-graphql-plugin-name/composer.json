@@ -4,9 +4,14 @@
 	"type": "wordpress-plugin",
 	"license": "GPL-3.0-or-later",
 	"authors": [],
+	"repositories": [
+		{
+			"type": "path",
+			"url": ".."
+		}
+	],
 	"require": {
-		"php": ">=7.4 || ^8.0 || 8.1",
-		"axepress/wp-graphql-plugin-boilerplate": "dev-develop"
+		"php": ">=7.4 || ^8.0 || 8.1"
 	},
 	"require-dev": {
 		"lucatume/wp-browser": "^3.0",
