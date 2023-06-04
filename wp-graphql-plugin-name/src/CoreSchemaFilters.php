@@ -7,7 +7,6 @@
 
 namespace WPGraphQL\PluginName;
 
-use WPGraphQL\PluginName\Data\Factory;
 use WPGraphQL\PluginName\Vendor\AxeWP\GraphQL\Interfaces\Registrable;
 
 /**
@@ -18,7 +17,7 @@ class CoreSchemaFilters implements Registrable {
 	 * {@inheritDoc}
 	 */
 	public static function init() : void {
-		add_filter( 'graphql_pb_type_prefix', [ __CLASS__, 'get_type_prefix' ] );
+		add_filter( 'graphql_pb_type_prefix', [ self::class, 'get_type_prefix' ] );
 	}
 
 	/**

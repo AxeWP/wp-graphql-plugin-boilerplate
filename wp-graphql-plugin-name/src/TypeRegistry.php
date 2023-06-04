@@ -8,15 +8,7 @@
 namespace WPGraphQL\PluginName;
 
 use Exception;
-use WPGraphQL\PluginName\Vendor\AxeWP\GraphQL\Interfaces\GraphQLType;
 use WPGraphQL\PluginName\Vendor\AxeWP\GraphQL\Interfaces\Registrable;
-use WPGraphQL\PluginName\Connection;
-use WPGraphQL\PluginName\Mutation;
-use WPGraphQL\PluginName\Type\Enum;
-use WPGraphQL\PluginName\Type\Input;
-use WPGraphQL\PluginName\Type\WPInterface;
-use WPGraphQL\PluginName\Type\WPObject;
-use WPGraphQL\PluginName\Utils\Utils;
 
 /**
  * Class - TypeRegistry

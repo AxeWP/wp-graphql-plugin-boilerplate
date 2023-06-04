@@ -27,7 +27,7 @@ if ( ! class_exists( 'WPGraphQL\PluginName\Main' ) ) :
 		 * Constructor
 		 */
 		public static function instance() : self {
-			if ( ! isset( self::$instance ) || ! ( is_a( self::$instance, __CLASS__ ) ) ) {
+			if ( ! isset( self::$instance ) || ! ( is_a( self::$instance, self::class ) ) ) {
 				// You cant test a singleton.
 				// @codeCoverageIgnoreStart
 				if ( ! function_exists( 'is_plugin_active' ) ) {

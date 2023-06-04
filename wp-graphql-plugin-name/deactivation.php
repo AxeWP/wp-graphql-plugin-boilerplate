@@ -11,7 +11,7 @@
  * This cleans up data that WPGraphQL stores.
  */
 function graphql_pb_deactivation_callback() : callable {
-	return function () : void {
+	return static function () : void {
 
 		// Fire an action when WPGraphQL is de-activating.
 		do_action( 'graphql_pb_deactivate' );
