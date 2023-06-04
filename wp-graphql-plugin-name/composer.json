@@ -7,11 +7,17 @@
 	"repositories": [
 		{
 			"type": "path",
-			"url": ".."
+			"url": "../../wp-graphql-plugin-boilerplate",
+			"options": {
+				"versions": {
+					"axepress/wp-graphql-plugin-boilerplate": "dev-main"
+				}
+			}
 		}
 	],
 	"require": {
-		"php": ">=7.4 || ^8.0 || 8.1"
+		"php": ">=7.4 || ^8.0 || 8.1",
+		"axepress/wp-graphql-plugin-boilerplate": "dev-main"
 	},
 	"require-dev": {
 		"lucatume/wp-browser": "^3.0",
@@ -109,7 +115,7 @@
 			"classmap_prefix": "WPGraphQL_PluginName_",
 			"constant_prefix": "GRAPHQL_PB_",
 			"include_modified_date": false,
-			"delete_vendor_files": true,
+			"delete_vendor_files": false,
 			"packages": [
 				"axepress/wp-graphql-plugin-boilerplate"
 			],

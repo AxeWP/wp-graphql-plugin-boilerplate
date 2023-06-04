@@ -4,8 +4,110 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e4d0db6979f7b88d5914be4c7fb0383e",
-    "packages": [],
+    "content-hash": "8ac7b9ef598314243e2c409718056513",
+    "packages": [
+        {
+            "name": "axepress/wp-graphql-plugin-boilerplate",
+            "version": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "../../wp-graphql-plugin-boilerplate",
+                "reference": "746c558665518db6891b6c342fd110dfb8cbd6d6"
+            },
+            "require": {
+                "php": ">=7.4 || ^8.0 || ^8.1"
+            },
+            "require-dev": {
+                "axepress/wp-graphql-cs": "dev-main",
+                "axepress/wp-graphql-stubs": "^1.12.2",
+                "phpstan/extension-installer": "^1.1",
+                "phpstan/phpstan": "^1.2",
+                "szepeviktor/phpstan-wordpress": "^1.0",
+                "wp-cli/wp-cli": "dev-main",
+                "wp-cli/wp-cli-bundle": "^2.7"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "AxeWP\\GraphQL\\": "src/"
+                }
+            },
+            "archive": {
+                "name": "wp-graphql-plugin-boilerplate",
+                "exclude": [
+                    "/.*",
+                    "/assets",
+                    "/bin",
+                    "/wp-graphql-plugin-name",
+                    "/composer.json",
+                    "/composer.lock",
+                    "/phpstan.neon.dist",
+                    "/README.md"
+                ]
+            },
+            "scripts": {
+                "create-plugin": [
+                    "bash bin/create-wpgraphql-plugin.sh"
+                ],
+                "init-plugin": [
+                    "bash bin/init-wpgraphql-plugin.sh"
+                ],
+                "install-test-env": [
+                    "cd wp-graphql-plugin-name && composer install-test-env"
+                ],
+                "install-stan-env": [
+                    "cd wp-graphql-plugin-name && composer --working-dir=wp-graphql-plugin-name/ install-stan-env"
+                ],
+                "codecept-run": [
+                    "cd wp-graphql-plugin-name && vendor/bin/codecept run -c wp-graphql-plugin-name --"
+                ],
+                "codecept-build": [
+                    "cd wp-graphql-plugin-name && /vendor/bin/codecept build -c wp-graphql-plugin-name --"
+                ],
+                "lint": [
+                    "vendor/bin/phpcs"
+                ],
+                "phpcs-i": [
+                    "php ./vendor/bin/phpcs -i"
+                ],
+                "check-cs": [
+                    "php ./vendor/bin/phpcs --standard=.phpcs.xml.dist"
+                ],
+                "fix-cs": [
+                    "php ./vendor/bin/phpcbf --standard=.phpcs.xml.dist"
+                ],
+                "phpstan": [
+                    "phpstan analyze --ansi --memory-limit=1G"
+                ],
+                "install-project-deps": [
+                    "@composer --working-dir=wp-graphql-plugin-name/ install --no-dev --optimize-autoloader"
+                ],
+                "update-project-deps": [
+                    "@composer --working-dir=wp-graphql-plugin-name/ update"
+                ],
+                "outdated-project-deps": [
+                    "@composer --working-dir=wp-graphql-plugin-name/ outdated -D"
+                ]
+            },
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "AxePress Development",
+                    "homepage": "https://axepress.dev"
+                },
+                {
+                    "name": "David Levine",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Boilerplate for creating WPGraphQL extensions",
+            "transport-options": {
+                "relative": true
+            }
+        }
+    ],
     "packages-dev": [
         {
             "name": "antecedent/patchwork",
@@ -10519,6 +10621,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
+        "axepress/wp-graphql-plugin-boilerplate": 20,
         "axepress/wp-graphql-cs": 20,
         "wp-cli/wp-cli": 20
     },
