@@ -1,5 +1,8 @@
 # Changelog
 
+# Unreleased
+* chore: Implement `axepress/wp-graphql-cs` ruleset for PHP_CodeSniffer.
+
 ## v0.0.8
 * feat: Deprecate `AXEWP_PB_HOOK_PREFIX` constant in favor of `Helper::set_hook_prefix()`.
 * dev: recommend installation via Strauss.

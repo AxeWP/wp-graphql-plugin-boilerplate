@@ -8,32 +8,25 @@
 namespace WPGraphQL\PluginName;
 
 use Exception;
-use WPGraphQL\PluginName\Vendor\AxeWP\GraphQL\Interfaces\GraphQLType;
 use WPGraphQL\PluginName\Vendor\AxeWP\GraphQL\Interfaces\Registrable;
-use WPGraphQL\PluginName\Connection;
-use WPGraphQL\PluginName\Mutation;
-use WPGraphQL\PluginName\Type\Enum;
-use WPGraphQL\PluginName\Type\Input;
-use WPGraphQL\PluginName\Type\WPInterface;
-use WPGraphQL\PluginName\Type\WPObject;
-use WPGraphQL\PluginName\Utils\Utils;
 
 /**
  * Class - TypeRegistry
  */
 class TypeRegistry {
-
 	/**
 	 * The local registry of registered types.
 	 *
-	 * @var array
+	 * @var string[]
 	 */
 	public static array $registry = [];
 
 	/**
 	 * Gets an array of all the registered GraphQL types along with their class name.
+	 *
+	 * @return string[]
 	 */
-	public static function get_registered_types() : array {
+	public static function get_registered_types(): array {
 		if ( empty( self::$registry ) ) {
 			self::initialize_registry();
 		}
@@ -44,7 +37,7 @@ class TypeRegistry {
 	/**
 	 * Registers types, connections, unions, and mutations to GraphQL schema.
 	 */
-	public static function init() : void {
+	public static function init(): void {
 		/**
 		 * Fires before all types have been registered.
 		 */
@@ -61,7 +54,7 @@ class TypeRegistry {
 	/**
 	 * Initializes the plugin type registry.
 	 */
-	private static function initialize_registry() : void {
+	private static function initialize_registry(): void {
 		$classes_to_register = array_merge(
 			self::enums(),
 			self::inputs(),
@@ -75,12 +68,12 @@ class TypeRegistry {
 		self::register_types( $classes_to_register );
 	}
 
-
-
 	/**
 	 * List of Enum classes to register.
+	 *
+	 * @return string[]
 	 */
-	private static function enums() : array {
+	private static function enums(): array {
 		// Enums to register.
 		$classes_to_register = [];
 
@@ -96,8 +89,10 @@ class TypeRegistry {
 
 	/**
 	 * List of Input classes to register.
+	 *
+	 * @return string[]
 	 */
-	private static function inputs() : array {
+	private static function inputs(): array {
 		$classes_to_register = [];
 
 		/**
@@ -112,8 +107,10 @@ class TypeRegistry {
 
 	/**
 	 * List of Interface classes to register.
+	 *
+	 * @return string[]
 	 */
-	public static function interfaces() : array {
+	public static function interfaces(): array {
 		$classes_to_register = [];
 
 		/**
@@ -128,8 +125,10 @@ class TypeRegistry {
 
 	/**
 	 * List of Object classes to register.
+	 *
+	 * @return string[]
 	 */
-	public static function objects() : array {
+	public static function objects(): array {
 		$classes_to_register = [];
 
 		/**
@@ -144,8 +143,10 @@ class TypeRegistry {
 
 	/**
 	 * List of Field classes to register.
+	 *
+	 * @return string[]
 	 */
-	public static function fields() : array {
+	public static function fields(): array {
 		$classes_to_register = [];
 
 		/**
@@ -160,8 +161,10 @@ class TypeRegistry {
 
 	/**
 	 * List of Connection classes to register.
+	 *
+	 * @return string[]
 	 */
-	public static function connections() : array {
+	public static function connections(): array {
 		$classes_to_register = [];
 
 		/**
@@ -176,8 +179,10 @@ class TypeRegistry {
 
 	/**
 	 * Registers mutation.
+	 *
+	 * @return string[]
 	 */
-	public static function mutations() : array {
+	public static function mutations(): array {
 		$classes_to_register = [];
 
 		/**
@@ -201,7 +206,7 @@ class TypeRegistry {
 	 *
 	 * @throws \Exception .
 	 */
-	private static function register_types( array $classes_to_register ) : void {
+	private static function register_types( array $classes_to_register ): void {
 		// Bail if there are no classes to register.
 		if ( empty( $classes_to_register ) ) {
 			return;

@@ -18,6 +18,6 @@ if ( ! interface_exists( '\AxeWP\GraphQL\Interfaces\TypeWithInterfaces' ) ) {
 		 *
 		 * @return string[]
 		 */
-		public static function get_interfaces() : array;
+		public static function get_interfaces(): array;
 	}
 }

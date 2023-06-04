@@ -8,8 +8,8 @@
 /**
  * Runs when the plugin is activated.
  */
-function graphql_pb_activation_callback() : callable {
-	return function() : void {
+function graphql_pb_activation_callback(): callable {
+	return static function (): void {
 		do_action( 'graphql_pb_activate' );
 
 		// store the current version of the plugin.

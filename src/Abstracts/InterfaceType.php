@@ -27,7 +27,7 @@ if ( ! class_exists( '\AxeWP\GraphQL\Abstracts\InterfaceType' ) ) {
 		 *
 		 * @param \WPGraphQL\Registry\TypeRegistry|null $type_registry The WPGraphQL TypeRegistry instance.
 		 */
-		public static function register( $type_registry = null ) : void {
+		public static function register( $type_registry = null ): void {
 			self::$type_registry = $type_registry;
 
 			register_graphql_interface_type( static::get_type_name(), static::get_type_config() );
@@ -36,7 +36,7 @@ if ( ! class_exists( '\AxeWP\GraphQL\Abstracts\InterfaceType' ) ) {
 		/**
 		 * {@inheritDoc}
 		 */
-		protected static function get_type_config() : array {
+		protected static function get_type_config(): array {
 			$config = parent::get_type_config();
 
 			$config['fields'] = static::get_fields();

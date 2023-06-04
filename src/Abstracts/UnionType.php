@@ -29,14 +29,14 @@ if ( ! class_exists( '\AxeWP\GraphQL\Abstracts\UnionType' ) ) {
 		 *
 		 * @return string[]
 		 */
-		abstract public static function get_possible_types() : array;
+		abstract public static function get_possible_types(): array;
 
 		/**
 		 * {@inheritDoc}
 		 *
 		 * @param \WPGraphQL\Registry\TypeRegistry|null $type_registry The WPGraphQL TypeRegistry instance.
 		 */
-		public static function register( $type_registry = null ) : void {
+		public static function register( $type_registry = null ): void {
 			self::$type_registry = $type_registry;
 
 			register_graphql_union_type( static::get_type_name(), static::get_type_config() );
@@ -45,7 +45,7 @@ if ( ! class_exists( '\AxeWP\GraphQL\Abstracts\UnionType' ) ) {
 		/**
 		 * {@inheritDoc}
 		 */
-		protected static function get_type_config() : array {
+		protected static function get_type_config(): array {
 			$config = parent::get_type_config();
 
 			$config['typeNames']   = static::get_possible_types();

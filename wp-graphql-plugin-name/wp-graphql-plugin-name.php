@@ -50,7 +50,7 @@ if ( file_exists( __DIR__ . '/deactivation.php' ) ) {
 /**
  * Define plugin constants.
  */
-function graphql_pb_constants() : void {
+function graphql_pb_constants(): void {
 	// Plugin version.
 	if ( ! defined( 'WPGRAPHQL_PB_VERSION' ) ) {
 		define( 'WPGRAPHQL_PB_VERSION', '0.0.1' );
@@ -79,8 +79,10 @@ function graphql_pb_constants() : void {
 
 /**
  * Checks if all the the required plugins are installed and activated.
+ *
+ * @return string[]
  */
-function graphql_pb_dependencies_not_ready() : array {
+function graphql_pb_dependencies_not_ready(): array {
 	$deps = [];
 
 	if ( ! class_exists( '\WPGraphQL' ) ) {
@@ -93,7 +95,7 @@ function graphql_pb_dependencies_not_ready() : array {
 /**
  * Initializes plugin.
  */
-function graphql_pb_init() : void {
+function graphql_pb_init(): void {
 	graphql_pb_constants();
 
 	$not_ready = graphql_pb_dependencies_not_ready();
@@ -106,7 +108,7 @@ function graphql_pb_init() : void {
 	foreach ( $not_ready as $dep ) {
 		add_action(
 			'admin_notices',
-			function() use ( $dep ) {
+			static function () use ( $dep ) {
 				?>
 				<div class="error notice">
 					<p>

@@ -29,6 +29,6 @@ if ( ! interface_exists( '\AxeWP\GraphQL\Interfaces\TypeWithConnections' ) ) {
 		 *   resolve?: callable,
 		 * }>
 		 */
-		public static function get_connections() : array;
+		public static function get_connections(): array;
 	}
 }
