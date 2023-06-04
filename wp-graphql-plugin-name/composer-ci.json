@@ -1,0 +1,143 @@
+{
+	"name": "wp-graphql-plugin-boilerplate/wp-graphql-plugin-name",
+	"description": "A WPGraphQL plugin created with wp-graphql-plugin-boilerplate.",
+	"type": "wordpress-plugin",
+	"license": "GPL-3.0-or-later",
+	"authors": [],
+	"repositories": [
+		{
+			"type": "path",
+			"url": ".."
+		}
+	],
+	"require": {
+		"php": ">=7.4 || ^8.0 || 8.1"
+	},
+	"require-dev": {
+		"lucatume/wp-browser": "^3.0",
+		"codeception/lib-innerbrowser": "^1.0",
+		"codeception/module-asserts": "^1.0",
+		"codeception/module-cli": "^1.0",
+		"codeception/module-db": "^1.0",
+		"codeception/module-filesystem": "^1.0",
+		"codeception/module-phpbrowser": "^1.0",
+		"codeception/module-rest": "^2.0",
+		"codeception/module-webdriver": "^1.0",
+		"codeception/phpunit-wrapper": "^9.0",
+		"codeception/util-universalframework": "^1.0",
+		"phpunit/phpunit": "^9.0",
+		"wp-graphql/wp-graphql-testcase": "^2.3",
+		"phpstan/phpstan": "^1.2",
+		"phpstan/extension-installer": "^1.1",
+		"szepeviktor/phpstan-wordpress": "^1.0",
+		"axepress/wp-graphql-stubs": "^1.12.2",
+		"axepress/wp-graphql-cs": "dev-main",
+		"wp-cli/wp-cli-bundle": "^2.7",
+		"wp-cli/wp-cli": "dev-main",
+		"php-coveralls/php-coveralls": "^2.5"
+	},
+	"config": {
+		"allow-plugins": {
+			"dealerdirect/phpcodesniffer-composer-installer": true,
+			"phpstan/extension-installer": true
+		},
+		"platform": {
+			"php": "7.4"
+		},
+		"process-timeout": 0,
+		"optimize-autoloader": true
+	},
+	"autoload": {
+		"files": [
+			"access-functions.php"
+		],
+		"psr-4": {
+			"WPGraphQL\\PluginName\\": "src/"
+		},
+		"classmap": [
+			"vendor-prefixed/"
+		]
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"Tests\\WPGraphQL\\PluginName\\": "tests/_support/"
+		}
+	},
+	"scripts": {
+		"init-plugin": "bash vendor/bin/init-wpgraphql-plugin.sh",
+		"install-test-env": "bash bin/install-test-env.sh",
+		"install-stan-env": "bash bin/install-stan-env.sh",
+		"docker-build": "bash bin/run-docker.sh build",
+		"docker-run": "bash bin/run-docker.sh run",
+		"docker-destroy": "docker-compose down",
+		"build-and-run": [
+			"@docker-build",
+			"@docker-run"
+		],
+		"build-app": "@docker-build -a",
+		"build-test": "@docker-build -t",
+		"run-app": "@docker-run -a",
+		"run-test": "@docker-run -t",
+		"lint": "vendor/bin/phpcs",
+		"phpcs-i": [
+			"php ./vendor/bin/phpcs -i"
+		],
+		"check-cs": [
+			"php ./vendor/bin/phpcs src"
+		],
+		"fix-cs": [
+			"php ./vendor/bin/phpcbf src"
+		],
+		"phpstan": [
+			"vendor/bin/phpstan analyze --ansi --memory-limit=1G"
+		],
+		"strauss": [
+			"test -f ./bin/strauss.phar || curl -o bin/strauss.phar -L -C - https://github.com/BrianHenryIE/strauss/releases/download/0.14.0/strauss.phar",
+			"@php bin/strauss.phar"
+		],
+		"post-install-cmd": [
+			"@strauss"
+		],
+		"post-update-cmd": [
+			"@strauss"
+		]
+	},
+	"extra": {
+		"strauss": {
+			"target_directory": "vendor-prefixed",
+			"namespace_prefix": "WPGraphQL\\PluginName\\Vendor\\",
+			"classmap_prefix": "WPGraphQL_PluginName_",
+			"constant_prefix": "GRAPHQL_PB_",
+			"include_modified_date": false,
+			"delete_vendor_files": true,
+			"packages": [
+				"axepress/wp-graphql-plugin-boilerplate"
+			],
+			"excluded_from_prefix": {
+				"file_patterns": ["/psr.*/"]
+			}
+		}
+	},
+	"archive": {
+		"name": "wp-graphql-plugin-name",
+		"exclude": [
+			"/.*",
+			"!.wordpress-org",
+			"bin",
+			"docker",
+			"docs",
+			"phpstan",
+			"plugin-build",
+			"tests",
+			"!vendor",
+			"/codeception.dist.yml",
+			"/codeception.yml",
+			"/composer.json",
+			"/composer.lock",
+			"/docker-compose.yml",
+			"/phpstan.neon.dist",
+			"/phpunit.xml.dist",
+			"/README.md"
+		]
+	}
+}
