@@ -1,8 +1,8 @@
 # Changelog
 
-# Unreleased
+## v0.0.9
 * dev: remove `static::$type_registry` property in favor of `WPGraphQL::get_type_registry()`.
-* chore: Implement `axepress/wp-graphql-cs` ruleset for PHP_CodeSniffer.
+* chore: Implement WPGraphQL Coding Standards ruleset for PHP_CodeSniffer.
 * chore: Update example workflows.
 * chore: Update composer deps.
 * ci: Create separate `composer.json` for testing.
