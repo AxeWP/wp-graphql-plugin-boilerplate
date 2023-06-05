@@ -20,10 +20,9 @@
 		"phpstan/extension-installer": "^1.1",
 		"phpstan/phpstan": "^1.2",
 		"axepress/wp-graphql-stubs": "^1.12.2",
-		"axepress/wp-graphql-cs": "dev-main",
+		"axepress/wp-graphql-cs": "^1.0.0-beta",
 		"szepeviktor/phpstan-wordpress": "^1.0",
-		"wp-cli/wp-cli-bundle": "^2.7",
-		"wp-cli/wp-cli": "dev-main"
+		"wp-cli/wp-cli-bundle": "^2.8.1"
 	},
 	"config": {
 		"allow-plugins": {
