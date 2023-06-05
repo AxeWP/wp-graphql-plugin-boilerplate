@@ -37,9 +37,8 @@
 		"phpstan/extension-installer": "^1.1",
 		"szepeviktor/phpstan-wordpress": "^1.0",
 		"axepress/wp-graphql-stubs": "^1.12.2",
-		"axepress/wp-graphql-cs": "dev-main",
-		"wp-cli/wp-cli-bundle": "^2.7",
-		"wp-cli/wp-cli": "dev-main",
+		"axepress/wp-graphql-cs": "^1.0.0-beta",
+		"wp-cli/wp-cli-bundle": "^2.8.1",
 		"php-coveralls/php-coveralls": "^2.5"
 	},
 	"config": {
