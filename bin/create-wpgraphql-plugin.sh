@@ -61,14 +61,11 @@ scaffold_plugin() {
 		exit 1
 	elif [ -n "$verbose" ]; then { echo "Plugin created at $PLUGIN_PATH"; }; fi
 
-	rm -rf "$TMPD"
-	echo "Installing dependencies..."
-	cd "$PLUGIN_PATH" && composer install --no-interaction --quiet
+	echo "Copying composer.json"
+	mv "${PLUGIN_PATH}/composer.dist.json" "${PLUGIN_PATH}/composer.json"
 
-	if [ $? -ne 0 ]; then
-		echo "Failed to install dependencies, aborting."
-		exit 1
-	elif [ -n "$verbose" ]; then { echo "Dependencies installed successfully."; }; fi
+	rm -rf "$TMPD"
+	echo "Deleted temporary directory ${TMPD}"
 }
 
 rename_examples() {

@@ -32,6 +32,6 @@ if ( ! interface_exists( '\WPGraphQL\PluginName\Vendor\AxeWP\GraphQL\Interfaces\
 		 *   deprecationReason?: string,
 		 * }>
 		 */
-		public static function get_fields() : array;
+		public static function get_fields(): array;
 	}
 }

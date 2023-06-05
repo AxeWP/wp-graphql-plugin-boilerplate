@@ -1,7 +1,11 @@
 # Changelog
 
 # Unreleased
+* dev: remove `static::$type_registry` property in favor of `WPGraphQL::get_type_registry()`.
 * chore: Implement `axepress/wp-graphql-cs` ruleset for PHP_CodeSniffer.
+* chore: Update example workflows.
+* chore: Update composer deps.
+* ci: Create separate `composer.json` for testing.
 
 ## v0.0.8
 * feat: Deprecate `AXEWP_PB_HOOK_PREFIX` constant in favor of `Helper::set_hook_prefix()`.

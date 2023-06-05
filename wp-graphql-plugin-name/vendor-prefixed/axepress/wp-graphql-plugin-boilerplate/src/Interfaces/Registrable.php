@@ -22,6 +22,6 @@ if ( ! interface_exists( '\WPGraphQL\PluginName\Vendor\AxeWP\GraphQL\Interfaces\
 		 *
 		 * WordPress actions/filters should be included here.
 		 */
-		public static function init() : void;
+		public static function init(): void;
 	}
 }

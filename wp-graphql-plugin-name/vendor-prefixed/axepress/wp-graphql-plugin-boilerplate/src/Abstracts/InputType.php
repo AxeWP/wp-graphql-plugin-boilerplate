@@ -22,14 +22,14 @@ if ( ! class_exists( '\WPGraphQL\PluginName\Vendor\AxeWP\GraphQL\Abstracts\Input
 		/**
 		 * {@inheritDoc}
 		 */
-		public static function register() : void {
+		public static function register(): void {
 			register_graphql_input_type( static::get_type_name(), static::get_type_config() );
 		}
 
 		/**
 		 * {@inheritDoc}
 		 */
-		protected static function get_type_config() : array {
+		protected static function get_type_config(): array {
 			$config = parent::get_type_config();
 
 			$config['fields'] = static::get_fields();
