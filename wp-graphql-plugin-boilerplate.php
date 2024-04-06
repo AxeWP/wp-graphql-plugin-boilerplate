@@ -7,12 +7,13 @@
  * Author: AxePress
  * Author URI: https://github.com/AxeWP
  * Update URI: https://github.com/AxeWP/wp-graphql-boilerplate
- * Version: 0.0.9
+ * Version: 0.1.0
  * Text Domain: wp-graphql-plugin-name
  * Domain Path: /languages
  * Requires at least: 5.4.1
- * Tested up to: 6.2.2
+ * Tested up to: 6.5
  * Requires PHP: 7.4+
+ * Requires Plugins: wp-graphql
  * WPGraphQL requires at least: 1.8.0
  * License: GPL-3
  * License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -20,8 +21,10 @@
  * @package WPGraphQL\PluginName
  * @author axepress, justlevine
  * @license GPL-3
- * @version 0.0.9
+ * @version 0.1.0
  */
+
+declare( strict_types=1 );
 
 // Pass through to plugin.
 require_once 'wp-graphql-plugin-name/wp-graphql-plugin-name.php';

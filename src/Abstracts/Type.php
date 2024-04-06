@@ -5,6 +5,8 @@
  * @package AxeWP\GraphQL\Abstracts
  */
 
+declare( strict_types=1 );
+
 namespace AxeWP\GraphQL\Abstracts;
 
 use AxeWP\GraphQL\Interfaces\GraphQLType;
@@ -39,7 +41,7 @@ if ( ! class_exists( '\AxeWP\GraphQL\Abstracts\Type' ) ) {
 		/**
 		 * Gets the $config array used to register the type to WPGraphQL.
 		 *
-		 * @return array<string, mixed>
+		 * @return array<string,mixed>
 		 */
 		protected static function get_type_config(): array {
 			return [

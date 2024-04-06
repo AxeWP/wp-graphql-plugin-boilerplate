@@ -14,13 +14,14 @@
 		}
 	],
 	"require": {
-		"php": ">=7.4 || ^8.0 || ^8.1"
+		"php": ">=7.4"
 	},
 	"require-dev": {
 		"phpstan/extension-installer": "^1.1",
 		"phpstan/phpstan": "^1.2",
 		"axepress/wp-graphql-stubs": "^1.12.2",
-		"axepress/wp-graphql-cs": "^1.0.0-beta",
+		"axepress/wp-graphql-cs": "^2.0.0-beta",
+		"phpcompatibility/php-compatibility": "dev-develop as 9.9.9",
 		"szepeviktor/phpstan-wordpress": "^1.0",
 		"wp-cli/wp-cli-bundle": "^2.8.1"
 	},

@@ -9,6 +9,7 @@
 	<file>./src/</file>
 	<exclude-pattern>/vendor/</exclude-pattern>
 	<exclude-pattern>/node_modules/</exclude-pattern>
+
 	<!-- How to scan -->
 	<!-- Usage instructions: https://github.com/squizlabs/PHP_CodeSniffer/wiki/Usage -->
 	<!-- Annotated ruleset: https://github.com/squizlabs/PHP_CodeSniffer/wiki/Annotated-ruleset.xml -->
@@ -19,33 +20,25 @@
 	<arg name="colors"/>
 	<arg name="extensions" value="php"/>
 	<!-- Enables parallel processing when available for faster results. -->
-	<arg name="parallel" value="8"/>
+	<arg name="parallel" value="20"/>
 
-	<!-- Rules: WordPress Coding Standards -->
-	<!-- https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards -->
-	<rule ref="WordPress-VIP-Go">
-		<exclude name="Generic.Arrays.DisallowShortArraySyntax"/>
-		<exclude name="WordPress.PHP.DisallowShortTernary.Found"/>
-		<exclude name="WordPress.CodeAnalysis.AssignmentInCondition.Found"/>
-		<exclude name="WordPress.Files.FileName" />
-		<exclude name="WordPress.NamingConventions.ValidVariableName" />
-		<exclude name="WordPress.NamingConventions.ValidHookName.UseUnderscores" />
-		<!-- Maybe Add later: -->
-		<exclude name="WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound" />
-		<exclude name="Generic.Commenting.DocComment.MissingShort" />
-		<exclude name="Squiz.Commenting.InlineComment.InvalidEndChar" />
-	</rule>
-	<rule ref="WordPress-Docs" />
-	<rule ref="WordPress-Extra" />
+	<!-- Ruleset Config: set these to match your project constraints-->
 
-	<!-- Tests for PHP version compatibility -->
+	<!--
+		Tests for PHP version compatibility.
+		https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards#Recomended-additional-rulesets
+	-->
 	<config name="testVersion" value="7.4-"/>
-	<rule ref="PHPCompatibilityWP">
-		<include-pattern>*\.php$</include-pattern>
-	</rule>
 
-	<!-- https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/wiki/Customizable-sniff-properties -->
+	<!--
+		Tests for WordPress version compatibility.
+		https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/wiki/Customizable-sniff-properties
+	-->
 	<config name="minimum_supported_wp_version" value="5.4.1"/>
+
+	<!-- Rules: WPGraphQL Coding Standards -->
+	<!-- https://github.com/AxeWP/WPGraphQL-Coding-Standards/WPGraphQL/ruleset.xml -->
+	<rule ref="WPGraphQL" />
 
 	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
 		<properties>

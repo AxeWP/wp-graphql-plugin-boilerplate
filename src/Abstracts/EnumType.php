@@ -5,6 +5,8 @@
  * @package AxeWP\GraphQL\Abstracts
  */
 
+declare( strict_types=1 );
+
 namespace AxeWP\GraphQL\Abstracts;
 
 if ( ! class_exists( '\AxeWP\GraphQL\Abstracts\EnumType' ) ) {
@@ -16,11 +18,7 @@ if ( ! class_exists( '\AxeWP\GraphQL\Abstracts\EnumType' ) ) {
 		/**
 		 * Gets the Enum values configuration array.
 		 *
-		 * @return array<string, array{
-		 *   description: string,
-		 *   value: mixed,
-		 *   deprecationReason?: string
-		 * }>
+		 * @return array<string,array{description:string,value:mixed,deprecationReason?:string}>
 		 */
 		abstract public static function get_values(): array;
 

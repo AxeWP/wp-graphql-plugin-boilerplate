@@ -5,6 +5,8 @@
  * @package AxeWP\GraphQL\Traits
  */
 
+declare( strict_types=1 );
+
 namespace AxeWP\GraphQL\Traits;
 
 use Closure;
@@ -30,7 +32,7 @@ if ( ! trait_exists( '\AxeWP\GraphQL\Traits\TypeResolverTrait' ) ) {
 				if ( empty( $type_name ) ) {
 					throw new Error(
 					// translators: the GraphQL interface type name.
-						sprintf( __( 'The value passed to %s failed to resolve to a valid GraphQL type', 'wp-graphql-plugin-name' ), static::class )
+						sprintf( esc_html__( 'The value passed to %s failed to resolve to a valid GraphQL type', 'wp-graphql-plugin-name' ), static::class )
 					);
 				}
 

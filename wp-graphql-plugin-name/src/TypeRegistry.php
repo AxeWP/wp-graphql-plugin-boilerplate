@@ -215,7 +215,7 @@ class TypeRegistry {
 		foreach ( $classes_to_register as $class ) {
 			if ( ! is_a( $class, Registrable::class, true ) ) {
 				// translators: PHP class.
-				throw new Exception( sprintf( __( 'To be registered to the WPGraphQL Plugin Name GraphQL schema, %s needs to implement \AxeWP\GraphQL\Interfaces\Registrable', 'wp-graphql-plugin-name' ), $class ) );
+				throw new Exception( sprintf( esc_html__( 'To be registered to the WPGraphQL Plugin Name GraphQL schema, %s needs to implement \AxeWP\GraphQL\Interfaces\Registrable', 'wp-graphql-plugin-name' ), esc_html( $class ) ) );
 			}
 
 			// Register the type to the GraphQL schema.

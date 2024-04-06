@@ -5,6 +5,5 @@
  * @package WPGraphQL/PluginName
  */
 
-define( 'WPGRAPHQL_PB_AUTOLOAD', true );
 define( 'WPGRAPHQL_PB_PLUGIN_FILE', 'wp-graphql-plugin-name.php' );
 define( 'WPGRAPHQL_PB_VERSION', '0.0.1' );

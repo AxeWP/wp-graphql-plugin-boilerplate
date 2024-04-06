@@ -5,6 +5,8 @@
  * @package AxeWP\GraphQL\Abstracts
  */
 
+declare( strict_types=1 );
+
 namespace AxeWP\GraphQL\Abstracts;
 
 use AxeWP\GraphQL\Traits\TypeResolverTrait;
