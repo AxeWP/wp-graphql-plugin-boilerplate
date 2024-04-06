@@ -10,7 +10,6 @@
 
 declare( strict_types=1 );
 
-
 namespace WPGraphQL\PluginName\Vendor\AxeWP\GraphQL\Helper;
 
 if ( ! class_exists( '\WPGraphQL\PluginName\Vendor\AxeWP\GraphQL\Helper\Helper' ) ) {

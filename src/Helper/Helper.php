@@ -7,7 +7,6 @@
 
 declare( strict_types=1 );
 
-
 namespace AxeWP\GraphQL\Helper;
 
 if ( ! class_exists( '\AxeWP\GraphQL\Helper\Helper' ) ) {

@@ -94,7 +94,6 @@ configure_wordpress() {
 	wp rewrite structure '/%year%/%monthnum%/%postname%/'
 }
 
-
 install_plugins() {
 	cd $WP_CORE_DIR
 

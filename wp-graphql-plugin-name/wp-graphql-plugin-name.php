@@ -47,7 +47,6 @@ if ( file_exists( __DIR__ . '/deactivation.php' ) ) {
 	register_activation_hook( __FILE__, 'graphql_pb_deactivation_callback' );
 }
 
-
 /**
  * Define plugin constants.
  */
