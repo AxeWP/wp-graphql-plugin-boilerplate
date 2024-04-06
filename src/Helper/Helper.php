@@ -5,6 +5,8 @@
  * @package AxeWP\GraphQL\Helper
  */
 
+declare( strict_types=1 );
+
 namespace AxeWP\GraphQL\Helper;
 
 if ( ! class_exists( '\AxeWP\GraphQL\Helper\Helper' ) ) {
@@ -13,11 +15,11 @@ if ( ! class_exists( '\AxeWP\GraphQL\Helper\Helper' ) ) {
 	 * Class - Helper
 	 */
 	class Helper {
-				/**
-				 * The hook prefix for the plugin.
-				 *
-				 * @var string
-				 */
+		/**
+		 * The hook prefix for the plugin.
+		 *
+		 * @var string
+		 */
 		public static string $hook_prefix;
 
 		/**

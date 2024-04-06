@@ -99,7 +99,6 @@ composer require axewp/wp-graphql-plugin-boilerplate
 },
 ```
 
-
 ### As a plugin starter
 
 #### 1. Initialize the plugin

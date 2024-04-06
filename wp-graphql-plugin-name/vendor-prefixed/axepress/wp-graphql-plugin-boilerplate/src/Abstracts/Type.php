@@ -5,9 +5,10 @@
  * @package AxeWP\GraphQL\Abstracts
  *
  * @license GPL-3.0-or-later
- * Modified by wp-graphql-plugin-boilerplate using Strauss.
- * @see https://github.com/BrianHenryIE/strauss
+ * Modified by wp-graphql-plugin-boilerplate using {@see https://github.com/BrianHenryIE/strauss}.
  */
+
+declare( strict_types=1 );
 
 namespace WPGraphQL\PluginName\Vendor\AxeWP\GraphQL\Abstracts;
 
@@ -43,7 +44,7 @@ if ( ! class_exists( '\WPGraphQL\PluginName\Vendor\AxeWP\GraphQL\Abstracts\Type'
 		/**
 		 * Gets the $config array used to register the type to WPGraphQL.
 		 *
-		 * @return array<string, mixed>
+		 * @return array<string,mixed>
 		 */
 		protected static function get_type_config(): array {
 			return [

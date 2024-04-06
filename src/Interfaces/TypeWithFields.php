@@ -5,6 +5,8 @@
  * @package AxeWP\GraphQL\Interfaces
  */
 
+declare( strict_types=1 );
+
 namespace AxeWP\GraphQL\Interfaces;
 
 if ( ! interface_exists( '\AxeWP\GraphQL\Interfaces\TypeWithFields' ) ) {
@@ -16,17 +18,7 @@ if ( ! interface_exists( '\AxeWP\GraphQL\Interfaces\TypeWithFields' ) ) {
 		/**
 		 * Gets the fields for the type.
 		 *
-		 * @return array<string, array{
-		 *   type: string|array<string, string | array<string, string>>,
-		 *   description: string,
-		 *   args?: array<string, array{
-		 *     type: string|array<string, string | array<string, string>>,
-		 *     description: string,
-		 *     defaultValue?: mixed
-		 *   }>,
-		 *   resolve?: callable,
-		 *   deprecationReason?: string,
-		 * }>
+		 * @return array<string,array{type:string|array<string,string|array<string,string>>,description:string,args?:array<string,array{type:string|array<string,string|array<string,string>>,description:string,defaultValue?:mixed}>,resolve?:callable,deprecationReason?:string}>
 		 */
 		public static function get_fields(): array;
 	}

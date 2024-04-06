@@ -5,6 +5,8 @@
  * @package AxeWP\GraphQL\Interfaces
  */
 
+declare( strict_types=1 );
+
 namespace AxeWP\GraphQL\Interfaces;
 
 if ( ! interface_exists( '\AxeWP\GraphQL\Interfaces\GraphQLType' ) ) {

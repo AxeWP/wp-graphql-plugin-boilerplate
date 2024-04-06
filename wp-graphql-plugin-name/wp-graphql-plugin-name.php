@@ -11,8 +11,9 @@
  * Text Domain: wp-graphql-plugin-name
  * Domain Path: /languages
  * Requires at least: 5.4.1
- * Tested up to: 6.2.2
+ * Tested up to: 6.5
  * Requires PHP: 7.4+
+ * Requires Plugins: wp-graphql
  * WPGraphQL requires at least: 1.8.0
  * License: GPL-3
  * License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -45,7 +46,6 @@ if ( file_exists( __DIR__ . '/deactivation.php' ) ) {
 	require_once __DIR__ . '/deactivation.php';
 	register_activation_hook( __FILE__, 'graphql_pb_deactivation_callback' );
 }
-
 
 /**
  * Define plugin constants.
