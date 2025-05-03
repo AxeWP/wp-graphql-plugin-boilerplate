@@ -9,6 +9,7 @@ declare( strict_types=1 );
 
 namespace AxeWP\GraphQL\Abstracts;
 
+use AxeWP\GraphQL\Helper\Compat;
 use AxeWP\GraphQL\Interfaces\GraphQLType;
 use AxeWP\GraphQL\Interfaces\Registrable;
 use AxeWP\GraphQL\Interfaces\TypeWithFields;
@@ -40,7 +41,10 @@ if ( ! class_exists( '\AxeWP\GraphQL\Abstracts\FieldsType' ) ) {
 		 * Register Fields to the GraphQL Schema.
 		 */
 		public static function register(): void {
-			register_graphql_fields( static::get_type_name(), static::get_fields() );
+			/** @todo remove when WPGraphQL > 2.3.0 is required. */
+			$config = Compat::resolve_graphql_config( [ 'fields' => static::get_fields() ] );
+
+			register_graphql_fields( static::get_type_name(), $config['fields'] );
 		}
 	}
 }

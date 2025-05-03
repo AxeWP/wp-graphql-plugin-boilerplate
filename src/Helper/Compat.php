@@ -36,6 +36,7 @@ if ( ! class_exists( '\AxeWP\GraphQL\Helper\Compat' ) ) {
 			 */
 			$nested_configs = [
 				'args',
+				'connections',
 				'connectionArgs',
 				'connectionFields',
 				'fields',
