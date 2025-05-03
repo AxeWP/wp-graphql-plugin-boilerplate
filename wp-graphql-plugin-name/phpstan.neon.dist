@@ -13,8 +13,8 @@ parameters:
 		treatPhpDocTypesAsCertain: false
 		stubFiles:
 			# Simulate added properties
-			- vendor-prefixed/axepress/wp-graphql-plugin-boilerplate/phpstan/class-wp-post-type.stub
-			- vendor-prefixed/axepress/wp-graphql-plugin-boilerplate/phpstan/class-wp-taxonomy.stub
+			- phpstan/class-wp-post-type.stub
+			- phpstan/class-wp-taxonomy.stub
 		bootstrapFiles:
 			- phpstan/constants.php
 			- wp-graphql-plugin-name.php

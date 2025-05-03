@@ -40,4 +40,4 @@ jobs:
           composer-options: "--no-progress"
 
       - name: Run PHPStan
-        run: composer run-script phpstan
+        run: composer run-script phpstan -- -vvv

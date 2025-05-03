@@ -47,4 +47,4 @@ jobs:
 
       - name: Run PHPStan
         working-directory: ./wp-graphql-plugin-name
-        run: composer run-script phpstan
+        run: composer run-script phpstan -- -vvv
