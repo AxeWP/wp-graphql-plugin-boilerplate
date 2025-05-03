@@ -17,12 +17,13 @@
 		"php": ">=7.4"
 	},
 	"require-dev": {
-		"phpstan/extension-installer": "^1.1",
-		"phpstan/phpstan": "^1.2",
-		"axepress/wp-graphql-stubs": "^1.12.2",
-		"axepress/wp-graphql-cs": "^2.0.0-beta",
+		"axepress/wp-graphql-cs": "^2.0.0",
+		"axepress/wp-graphql-stubs": "^2.3.0",
 		"phpcompatibility/php-compatibility": "dev-develop as 9.9.9",
-		"szepeviktor/phpstan-wordpress": "^1.0",
+		"phpstan/extension-installer": "^1.1",
+		"phpstan/phpstan-deprecation-rules": "^2.0.1",
+		"phpstan/phpstan": "^2.0",
+		"szepeviktor/phpstan-wordpress": "^2.0",
 		"wp-cli/wp-cli-bundle": "^2.8.1"
 	},
 	"config": {
@@ -30,11 +31,9 @@
 			"dealerdirect/phpcodesniffer-composer-installer": true,
 			"phpstan/extension-installer": true
 		},
-		"platform": {
-			"php": "7.4"
-		},
+		"optimize-autoloader": true,
 		"process-timeout": 0,
-		"optimize-autoloader": true
+		"sort-packages": true
 	},
 	"autoload": {
 		"psr-4": {

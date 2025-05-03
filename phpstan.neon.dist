@@ -1,12 +1,8 @@
 parameters:
 		level: 8
-		checkAlwaysTrueCheckTypeFunctionCall: true
-		checkAlwaysTrueInstanceof: true
-		checkAlwaysTrueStrictComparison: true
 		checkExplicitMixedMissingReturn: true
 		checkFunctionNameCase: true
 		checkInternalClassCaseSensitivity: true
-		checkMissingIterableValueType: true
 		checkTooWideReturnTypesInProtectedAndPublicMethods: true
 		inferPrivatePropertyTypeFromConstructor: true
 		polluteScopeWithAlwaysIterableForeach: false
