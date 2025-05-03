@@ -1,8 +1,8 @@
 === WPGraphQL Plugin Name ===
 Contributors: axepress, justlevine
 Tags: GraphQL, Gatsby, Headless, WPGraphQL, React, Rest
-Requires at least: 5.4.1
-Tested up to: 6.5
+Requires at least: 6.0
+Tested up to: 6.8
 Requires PHP: 7.4
 Requires WPGraphQL: 1.8.0
 Stable tag: 0.0.1

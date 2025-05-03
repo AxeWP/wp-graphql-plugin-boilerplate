@@ -18,28 +18,33 @@ if ( ! class_exists( '\AxeWP\GraphQL\Abstracts\ConnectionType' ) ) {
 	/**
 	 * Class - ConnectionType
 	 *
-	 * @phpstan-type ConnectionConfig array{fromType:string,
+	 * phpcs:disable SlevomatCodingStandard.Namespaces.FullyQualifiedClassNameInAnnotation -- PHPStan formatting.
+	 *
+	 * @phpstan-type ConnectionArgsConfig array{
+	 *  type: string|array<string,string|array<string,string>>,
+	 *  description: callable():string,
+	 *  defaultValue?: mixed
+	 * }
+	 *
+	 * @phpstan-type ConnectionFieldConfig array{
+	 *   type: string|array<string,string | array<string,string>>,
+	 *   description: callable():string,
+	 *   args?: array<string,ConnectionArgsConfig>,
+	 *   resolve?: callable,
+	 *   deprecationReason?: callable():string,
+	 * }
+	 *
+	 * @phpstan-type ConnectionConfig array{
+	 *   fromType: string,
 	 *   fromFieldName: string,
 	 *   resolve: callable,
 	 *   oneToOne?: bool,
 	 *   toType?: string,
-	 *   connectionArgs?: array<string,array{
-	 *     type: string|array<string,string | array<string,string>>,
-	 *     description: string,
-	 *     defaultValue?: mixed
-	 *   }>,
-	 *   connectionFields?: array<string,array{
-	 *     type: string|array<string,string | array<string,string>>,
-	 *     description: string,
-	 *     args?: array<string,array{
-	 *       type: string|array<string,string | array<string,string>>,
-	 *       description: string,
-	 *       defaultValue?: mixed,
-	 *     }>,
-	 *     resolve?: callable,
-	 *     deprecationReason?: string,
-	 *   }>,
+	 *   connectionArgs?: array<string,ConnectionArgsConfig>,
+	 *   connectionFields?: array<string,ConnectionFieldConfig>,
 	 * }
+	 *
+	 * phpcs:enable SlevomatCodingStandard.Namespaces.FullyQualifiedClassNameInAnnotation
 	 */
 	abstract class ConnectionType implements GraphQLType, Registrable {
 		use TypeNameTrait;
@@ -54,7 +59,7 @@ if ( ! class_exists( '\AxeWP\GraphQL\Abstracts\ConnectionType' ) ) {
 		/**
 		 * Defines all possible connection args for the GraphQL type.
 		 *
-		 * @return array<string,array{type:string|array<string,string|array<string,string>>,description:string,defaultValue?:mixed}>
+		 * @return array<string,ConnectionArgsConfig>
 		 */
 		abstract protected static function connection_args(): array;
 
@@ -79,7 +84,7 @@ if ( ! class_exists( '\AxeWP\GraphQL\Abstracts\ConnectionType' ) ) {
 		 *
 		 * @param ?string[] $filter_by an array of specific connections to return.
 		 *
-		 * @return array<string,array{type:string|array<string,string|array<string,string>>,description:string,defaultValue?:mixed}>
+		 * @return array<string,ConnectionArgsConfig>
 		 */
 		final public static function get_connection_args( ?array $filter_by = null ): array {
 			$connection_args = static::connection_args();

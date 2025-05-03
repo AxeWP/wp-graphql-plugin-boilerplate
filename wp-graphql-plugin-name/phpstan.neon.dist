@@ -1,12 +1,8 @@
 parameters:
 		level: 8
-		checkAlwaysTrueCheckTypeFunctionCall: true
-		checkAlwaysTrueInstanceof: true
-		checkAlwaysTrueStrictComparison: true
 		checkExplicitMixedMissingReturn: true
 		checkFunctionNameCase: true
 		checkInternalClassCaseSensitivity: true
-		checkMissingIterableValueType: true
 		checkTooWideReturnTypesInProtectedAndPublicMethods: true
 		inferPrivatePropertyTypeFromConstructor: true
 		polluteScopeWithAlwaysIterableForeach: false
@@ -15,8 +11,6 @@ parameters:
 		reportStaticMethodSignatures: true
 		reportWrongPhpDocTypeInVarTag: true
 		treatPhpDocTypesAsCertain: false
-		featureToggles:
-			disableRuntimeReflectionProvider: true
 		stubFiles:
 			# Simulate added properties
 			- vendor/axepress/wp-graphql-plugin-boilerplate/phpstan/class-wp-post-type.stub

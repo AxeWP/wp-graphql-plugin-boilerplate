@@ -9,23 +9,47 @@ declare( strict_types=1 );
 
 namespace AxeWP\GraphQL\Abstracts;
 
+use AxeWP\GraphQL\Helper\Compat;
 use AxeWP\GraphQL\Interfaces\TypeWithFields;
 
 if ( ! class_exists( '\AxeWP\GraphQL\Abstracts\ObjectType' ) ) {
 
 	/**
 	 * Class - ObjectType
+	 *
+	 * phpcs:disable SlevomatCodingStandard.Namespaces.FullyQualifiedClassNameInAnnotation -- PHPStan formatting.
+	 *
+	 * @phpstan-import-type FieldConfig from \AxeWP\GraphQL\Interfaces\TypeWithFields
+	 * @phpstan-import-type ConnectionConfig from \AxeWP\GraphQL\Interfaces\TypeWithConnections
+	 *
+	 * @phpstan-type ObjectTypeConfig array{
+	 *   description:callable():string,
+	 *   eagerlyLoadType: bool,
+	 *   fields: array<string,FieldConfig>,
+	 *   connections?: array<string,ConnectionConfig>,
+	 *   resolveType?: callable,
+	 *   interfaces?: string[],
+	 * }
+	 *
+	 * @extends \AxeWP\GraphQL\Abstracts\Type<ObjectTypeConfig>
+	 *
+	 * phpcs:enable SlevomatCodingStandard.Namespaces.FullyQualifiedClassNameInAnnotation
 	 */
 	abstract class ObjectType extends Type implements TypeWithFields {
 		/**
 		 * {@inheritDoc}
 		 */
 		public static function register(): void {
-			register_graphql_object_type( static::get_type_name(), static::get_type_config() );
+			/** @todo remove when WPGraphQL > 2.3.0 is required. */
+			$config = Compat::resolve_graphql_config( static::get_type_config() );
+
+			register_graphql_object_type( static::get_type_name(), $config );
 		}
 
 		/**
 		 * {@inheritDoc}
+		 *
+		 * @return ObjectTypeConfig
 		 */
 		protected static function get_type_config(): array {
 			$config = parent::get_type_config();

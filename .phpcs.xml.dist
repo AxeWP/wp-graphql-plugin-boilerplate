@@ -28,7 +28,7 @@
 	<!-- Set severity to 1 to see everything that isn't effectively turned off. -->
 	<arg name="severity" value="1" />
 
-<!-- Ruleset Config: set these to match your project constraints-->
+	<!-- Ruleset Config: set these to match your project constraints-->
 
 	<!--
 		Tests for PHP version compatibility.
@@ -59,5 +59,4 @@
 			<property name="text_domain" type="array" value="wp-graphql-plugin-name"/>
 		</properties>
 	</rule>
-
 </ruleset>

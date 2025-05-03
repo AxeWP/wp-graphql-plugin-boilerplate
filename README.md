@@ -29,7 +29,7 @@ Inspired by the following projects and their contributors:
 ## System Requirements
 
 * PHP 7.4+ | 8.0+ | 8.1+
-* WordPress 5.4.1+
+* WordPress 6.0+
 * WPGraphQL 1.8.0+
 
 ## Getting Started

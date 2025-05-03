@@ -13,12 +13,18 @@ if ( ! interface_exists( '\AxeWP\GraphQL\Interfaces\TypeWithInputFields' ) ) {
 
 	/**
 	 * Interface - TypeWithInputFields.
+	 *
+	 * @phpstan-type InputFieldConfig array{
+	 *   type:string|array<string,string|array<string,string>>,
+	 *   description: callable(): string,
+	 *   defaultValue?:string
+	 * }
 	 */
 	interface TypeWithInputFields extends GraphQLType {
 		/**
 		 * Gets the input fields for the type.
 		 *
-		 * @return array<string,array{type:string|array<string,string|array<string,string>>,description:string,defaultValue?:string}>
+		 * @return array<string,InputFieldConfig>
 		 */
 		public static function get_fields(): array;
 	}

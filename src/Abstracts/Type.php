@@ -17,6 +17,13 @@ if ( ! class_exists( '\AxeWP\GraphQL\Abstracts\Type' ) ) {
 
 	/**
 	 * Class - Type
+	 *
+	 * @phpstan-type BaseTypeConfig array{
+	 *  description:callable():string,
+	 *  eagerlyLoadType:bool
+	 * }
+	 *
+	 * @template TypeConfig of array
 	 */
 	abstract class Type implements GraphQLType, Registrable {
 		use TypeNameTrait;
@@ -41,11 +48,11 @@ if ( ! class_exists( '\AxeWP\GraphQL\Abstracts\Type' ) ) {
 		/**
 		 * Gets the $config array used to register the type to WPGraphQL.
 		 *
-		 * @return array<string,mixed>
+		 * @return TypeConfig&BaseTypeConfig
 		 */
 		protected static function get_type_config(): array {
 			return [
-				'description'     => static::get_description(),
+				'description'     => static fn () => static::get_description(),
 				'eagerlyLoadType' => static::should_load_eagerly(),
 			];
 		}
