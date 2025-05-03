@@ -15,7 +15,6 @@ parameters:
 			# Simulate added properties
 			- vendor/axepress/wp-graphql-plugin-boilerplate/phpstan/class-wp-post-type.stub
 			- vendor/axepress/wp-graphql-plugin-boilerplate/phpstan/class-wp-taxonomy.stub
-			- vendor/axepress/wp-graphql-plugin-boilerplate/phpstan/Model.stub
 		bootstrapFiles:
 			- phpstan/constants.php
 			- wp-graphql-plugin-name.php

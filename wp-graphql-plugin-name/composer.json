@@ -69,6 +69,21 @@
 			"Tests\\WPGraphQL\\PluginName\\": "tests/_support/"
 		}
 	},
+	"extra": {
+		"strauss": {
+			"target_directory": "vendor-prefixed",
+			"namespace_prefix": "WPGraphQL\\PluginName\\Vendor\\",
+			"classmap_prefix": "WPGraphQL_PluginName_",
+			"constant_prefix": "GRAPHQL_PB_",
+			"delete_vendor_packages": true,
+			"include_modified_date": false,
+			"update_call_sites": false,
+			"exclude_from_prefix": {
+				"namespaces": [],
+				"file_patterns": []
+			}
+		}
+	},
 	"scripts": {
 		"init-plugin": "bash vendor/bin/init-wpgraphql-plugin.sh",
 		"install-test-env": "bash bin/install-test-env.sh",
@@ -97,42 +112,26 @@
 		"phpstan": [
 			"vendor/bin/phpstan analyze --ansi --memory-limit=1G"
 		],
-		"strauss-install": [
-			"test -f ./bin/strauss.phar || curl -o bin/strauss.phar -L -C - https://github.com/BrianHenryIE/strauss/releases/download/0.19.4/strauss.phar"
+		"pre-prefix-namespaces": [
+			"test -d vendor-prefixed || mkdir vendor-prefixed",
+			"test -f ./bin/strauss.phar || curl -o bin/strauss.phar -L -C - https://github.com/BrianHenryIE/strauss/releases/download/0.22.2/strauss.phar"
 		],
-		"strauss": [
-			"@strauss-install",
+		"prefix-namespaces": [
 			"@php bin/strauss.phar",
-			"composer dump-autoload --optimize"
+			"@composer dump-autoload"
 		],
 		"pre-install-cmd": [
-			"test -d vendor-prefixed || mkdir vendor-prefixed"
+			"@pre-prefix-namespaces"
 		],
 		"pre-update-cmd": [
 			"@pre-install-cmd"
 		],
 		"post-install-cmd": [
-			"@strauss"
+			"@prefix-namespaces"
 		],
 		"post-update-cmd": [
-			"@post-install-cmd"
+			"@prefix-namespaces"
 		]
-	},
-	"extra": {
-		"strauss": {
-			"target_directory": "vendor-prefixed",
-			"namespace_prefix": "WPGraphQL\\PluginName\\Vendor\\",
-			"classmap_prefix": "WPGraphQL_PluginName_",
-			"constant_prefix": "GRAPHQL_PB_",
-			"include_modified_date": false,
-			"delete_vendor_files": false,
-			"packages": [
-				"axepress/wp-graphql-plugin-boilerplate"
-			],
-			"excluded_from_prefix": {
-				"file_patterns": ["/psr.*/"]
-			}
-		}
 	},
 	"archive": {
 		"name": "wp-graphql-plugin-name",
