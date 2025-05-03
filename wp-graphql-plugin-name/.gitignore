@@ -29,7 +29,6 @@ auth.json
 
 # Composer deps
 vendor
-vendor-prefixed
 
 # NPM deps
 node_modules
