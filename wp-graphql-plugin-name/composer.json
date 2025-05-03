@@ -81,7 +81,10 @@
 			"exclude_from_prefix": {
 				"namespaces": [],
 				"file_patterns": []
-			}
+			},
+			"packages": [
+				"axepress/wp-graphql-plugin-boilerplate"
+			]
 		}
 	},
 	"scripts": {
