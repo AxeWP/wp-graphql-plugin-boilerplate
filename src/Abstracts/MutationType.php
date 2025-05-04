@@ -9,23 +9,57 @@ declare( strict_types=1 );
 
 namespace AxeWP\GraphQL\Abstracts;
 
+use AxeWP\GraphQL\Helper\Compat;
+
 if ( ! class_exists( '\AxeWP\GraphQL\Abstracts\MutationType' ) ) {
 
 	/**
 	 * Class - MutationType
+	 *
+	 * phpcs:disable SlevomatCodingStandard.Namespaces.FullyQualifiedClassNameInAnnotation -- PHPStan formatting.
+	 *
+	 * @phpstan-type MutationInputFieldConfig array{
+	 *   type:string|array<string,string|array<string,string>>,
+	 *   description:callable():string,
+	 *   defaultValue?:string
+	 * }
+	 *
+	 * @phpstan-type MutationOutputFieldConfig array{
+	 *   type:string|array<string,string|array<string,string>>,
+	 *   description:callable():string,
+	 *   args?:array<string,array{
+	 *     type:string|array<string,string|array<string,string>>,
+	 *     description:callable():string,
+	 *     defaultValue?:mixed
+	 *   }>,
+	 *   resolve?:callable,
+	 *   deprecationReason?:callable():string
+	 * }
+	 *
+	 * @phpstan-type MutationTypeConfig array{
+	 *   description:callable():string,
+	 *   eagerlyLoadType:bool,
+	 *   inputFields:array<string,MutationInputFieldConfig>,
+	 *   outputFields:array<string,MutationOutputFieldConfig>,
+	 *   mutateAndGetPayload:callable,
+	 * }
+	 *
+	 * @extends \AxeWP\GraphQL\Abstracts\Type<MutationTypeConfig>
+	 *
+	 * phpcs:disable SlevomatCodingStandard.Namespaces.FullyQualifiedClassNameInAnnotation
 	 */
 	abstract class MutationType extends Type {
 		/**
 		 * Gets the input fields for the mutation.
 		 *
-		 * @return array<string,array{type:string|array<string,string|array<string,string>>,description:string,defaultValue?:string}>
+		 * @return array<string,MutationInputFieldConfig>
 		 */
 		abstract public static function get_input_fields(): array;
 
 		/**
 		 * Gets the fields for the type.
 		 *
-		 * @return array<string,array{type:string|array<string,string|array<string,string>>,description:string,args?:array<string,array{type:string|array<string,string|array<string,string>>,description:string,defaultValue?:mixed}>,resolve?:callable,deprecationReason?:string}>
+		 * @return array<string,MutationOutputFieldConfig>
 		 */
 		abstract public static function get_output_fields(): array;
 
@@ -38,7 +72,10 @@ if ( ! class_exists( '\AxeWP\GraphQL\Abstracts\MutationType' ) ) {
 		 * Register mutations to the GraphQL Schema.
 		 */
 		public static function register(): void {
-			register_graphql_mutation( static::get_type_name(), static::get_type_config() );
+			/** @todo remove when WPGraphQL > 2.3.0 is required. */
+			$config = Compat::resolve_graphql_config( static::get_type_config() );
+
+			register_graphql_mutation( static::get_type_name(), $config );
 		}
 
 		/**
@@ -50,6 +87,8 @@ if ( ! class_exists( '\AxeWP\GraphQL\Abstracts\MutationType' ) ) {
 
 		/**
 		 * {@inheritDoc}
+		 *
+		 * @return MutationTypeConfig
 		 */
 		protected static function get_type_config(): array {
 			$config = parent::get_type_config();

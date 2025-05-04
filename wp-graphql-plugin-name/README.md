@@ -10,7 +10,7 @@
 ## System Requirements
 
 * PHP 7.4+
-* WordPress 5.4.1+
+* WordPress 6.0+
 * WPGraphQL 1.8.0+
 
 ## Quick Install

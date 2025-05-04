@@ -20,15 +20,6 @@ jobs:
   run:
     runs-on: ubuntu-latest
     name: Check code
-    services:
-      mariadb:
-        image: mariadb:10
-        ports:
-          - 3306:3306
-        env:
-          MYSQL_ROOT_PASSWORD: root
-        # Ensure docker waits for mariadb to start
-        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
 
     steps:
       - name: Checkout
@@ -43,21 +34,17 @@ jobs:
           tools: composer:v2
 
       - name: Install dependencies
-        uses: ramsey/composer-install@v2
+        uses: ramsey/composer-install@v3
         with:
           working-directory: ./wp-graphql-plugin-name
           composer-options: "--no-progress"
 
-      - name: Setup WordPress
+      - name: Configure local dependency
         run: |
-          cp .env.dist .env
-          composer run install-stan-env
-          cp -R . /tmp/wordpress/wp-content/plugins/wp-graphql-plugin-name
-          rm -rf /tmp/wordpress/wp-content/plugins/wp-graphql-plugin-name/vendor/axepress/wp-graphql-plugin-boilerplate
-          cp -R .. /tmp/wordpress/wp-content/plugins/wp-graphql-plugin-name/vendor/axepress/wp-graphql-plugin-boilerplate
-          composer run-script strauss
+          composer config repositories.local '{"type": "path", "url": "../", "options": {"symlink": false}}'
+          composer require axepress/wp-graphql-plugin-boilerplate:@dev
         working-directory: ./wp-graphql-plugin-name
 
       - name: Run PHPStan
-        working-directory: /tmp/wordpress/wp-content/plugins/wp-graphql-plugin-name
-        run: composer run-script phpstan
+        working-directory: ./wp-graphql-plugin-name
+        run: composer run-script phpstan -- -vvv

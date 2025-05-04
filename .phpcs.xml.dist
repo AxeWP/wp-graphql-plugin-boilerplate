@@ -21,10 +21,14 @@
 	<!-- Strip the file paths down to the relevant bit -->
 	<arg name="colors"/>
 	<arg name="extensions" value="php"/>
+	<!-- Whenever possible, cache the scan results and re-use those for unchanged files on the next scan. -->
+	<arg name="cache" value="phpcs-cache.json" />
 	<!-- Enables parallel processing when available for faster results. -->
 	<arg name="parallel" value="20"/>
+	<!-- Set severity to 1 to see everything that isn't effectively turned off. -->
+	<arg name="severity" value="1" />
 
-<!-- Ruleset Config: set these to match your project constraints-->
+	<!-- Ruleset Config: set these to match your project constraints-->
 
 	<!--
 		Tests for PHP version compatibility.
@@ -36,7 +40,7 @@
 		Tests for WordPress version compatibility.
 		https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/wiki/Customizable-sniff-properties
 	-->
-	<config name="minimum_supported_wp_version" value="5.6"/>
+	<config name="minimum_wp_version" value="6.0"/>
 
 	<!-- Rules: WPGraphQL Coding Standards -->
 	<!-- https://github.com/AxeWP/WPGraphQL-Coding-Standards/WPGraphQL/ruleset.xml -->
@@ -55,5 +59,4 @@
 			<property name="text_domain" type="array" value="wp-graphql-plugin-name"/>
 		</properties>
 	</rule>
-
 </ruleset>

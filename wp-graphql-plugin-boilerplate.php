@@ -10,8 +10,8 @@
  * Version: 0.1.0
  * Text Domain: wp-graphql-plugin-name
  * Domain Path: /languages
- * Requires at least: 5.4.1
- * Tested up to: 6.5
+ * Requires at least: 6.0
+ * Tested up to: 6.8
  * Requires PHP: 7.4+
  * Requires Plugins: wp-graphql
  * WPGraphQL requires at least: 1.8.0

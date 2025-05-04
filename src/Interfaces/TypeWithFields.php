@@ -13,12 +13,30 @@ if ( ! interface_exists( '\AxeWP\GraphQL\Interfaces\TypeWithFields' ) ) {
 
 	/**
 	 * Interface - TypeWithFields.
+	 *
+	 * phpcs:disable SlevomatCodingStandard.Namespaces.FullyQualifiedClassNameInAnnotation -- PHPStan formatting.
+	 *
+	 * @phpstan-type FieldConfigArgs array{
+	 *   type:string|array<string,string|array<string,string>>,
+	 *   description:callable(): string,
+	 *   defaultValue?:mixed
+	 * }
+	 *
+	 * @phpstan-type FieldConfig array{
+	 *   type:string|array<string,string|array<string,string>>,
+	 *   description:callable(): string,
+	 *   args?:array<string,FieldConfigArgs>,
+	 *   resolve?:callable,
+	 *   deprecationReason?:callable(): string,
+	 * }
+	 *
+	 * phpcs:enable SlevomatCodingStandard.Namespaces.FullyQualifiedClassNameInAnnotation
 	 */
 	interface TypeWithFields extends GraphQLType {
 		/**
 		 * Gets the fields for the type.
 		 *
-		 * @return array<string,array{type:string|array<string,string|array<string,string>>,description:string,args?:array<string,array{type:string|array<string,string|array<string,string>>,description:string,defaultValue?:mixed}>,resolve?:callable,deprecationReason?:string}>
+		 * @return array<string,FieldConfig>
 		 */
 		public static function get_fields(): array;
 	}

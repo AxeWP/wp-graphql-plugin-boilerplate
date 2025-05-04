@@ -30,9 +30,6 @@ if ( ! class_exists( 'WPGraphQL\PluginName\Main' ) ) :
 			if ( ! isset( self::$instance ) || ! ( is_a( self::$instance, self::class ) ) ) {
 				// You cant test a singleton.
 				// @codeCoverageIgnoreStart .
-				if ( ! function_exists( 'is_plugin_active' ) ) {
-					require_once ABSPATH . 'wp-admin/includes/plugin.php';
-				}
 				self::$instance = new self();
 				self::$instance->includes();
 				self::$instance->setup();

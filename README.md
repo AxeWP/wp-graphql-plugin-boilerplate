@@ -29,7 +29,7 @@ Inspired by the following projects and their contributors:
 ## System Requirements
 
 * PHP 7.4+ | 8.0+ | 8.1+
-* WordPress 5.4.1+
+* WordPress 6.0+
 * WPGraphQL 1.8.0+
 
 ## Getting Started
@@ -50,15 +50,25 @@ composer require axewp/wp-graphql-plugin-boilerplate
 1. Add the following scripts to composer .json:
 ```json
 "scripts": {
-  "strauss": [
-    "test -f ./bin/strauss.phar || curl -o bin/strauss.phar -L -C - https://github.com/BrianHenryIE/strauss/releases/download/0.14.0/strauss.phar",
-    "@php bin/strauss.phar"
+  "pre-prefix-namespaces": [
+    "test -d vendor-prefixed || mkdir vendor-prefixed",
+    "test -f ./bin/strauss.phar || curl -o bin/strauss.phar -L -C - https://github.com/BrianHenryIE/strauss/releases/download/0.22.2/strauss.phar"
+  ],
+  "prefix-namespaces": [
+    "@php bin/strauss.phar",
+    "@composer dump-autoload"
+  ],
+  "pre-install-cmd": [
+    "@pre-prefix-namespaces"
+  ],
+  "pre-update-cmd": [
+    "@pre-install-cmd"
   ],
   "post-install-cmd": [
-    "@strauss"
+    "@prefix-namespaces"
   ],
   "post-update-cmd": [
-    "@strauss"
+    "@prefix-namespaces"
   ]
 }
 ```
@@ -71,14 +81,16 @@ composer require axewp/wp-graphql-plugin-boilerplate
     "namespace_prefix": "WPGraphQL\\PluginName\\Vendor\\",
     "classmap_prefix": "WPGraphQL_PluginName",
     "constant_prefix": "GRAPHQL_PLUGINNAME",
+    "delete_vendor_packages": true,
     "include_modified_date": false,
-    "delete_vendor_files": true,
+    "update_call_sites": false,
+    "exclude_from_prefix": {
+      "namespaces": [],
+      "file_patterns": []
+    }
     "packages": [
       "axepress/wp-graphql-plugin-boilerplate"
     ],
-    "excluded_from_prefix": {
-      "file_patterns": []
-    }
   }
 },
 ```
