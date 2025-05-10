@@ -1,11 +1,8 @@
 # Changelog
 
 ## [Unreleased]
-* feat: Added support for lazy-loaded configuration values (e.g., descriptions) using callables.
-* feat: Introduced a compatibility layer for WPGraphQL versions < 2.3.0 that do not support lazy-loaded configs.
-* fix: Ensure compatibility layer handles object connections correctly.
-* dev: Updated PHPStan type definitions to reflect callable configuration values.
-* chore: Update composer dependencies.
+* feat: Add support for lazy-loaded configuration values (e.g., descriptions) using callables, with compatibility layer for older WPGraphQL versions.
+* chore: Update Composer dependencies.
 
 ## v0.1.0
 * feat: Enabled strict type declarations across all PHP files
