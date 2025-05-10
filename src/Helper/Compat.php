@@ -15,25 +15,6 @@ if ( ! class_exists( '\AxeWP\GraphQL\Helper\Compat' ) ) {
 	 */
 	class Compat {
 		/**
-		 * Registers compatibility hooks, so downstream plugins don't need to manage the hook logic.
-		 */
-		public static function register_compat_hooks(): void {
-			// WPEnumType and WPInputObjectType do not have a config hook.
-			$config_hooks = [
-				'graphql_wp_connection_type_config',
-				'graphql_wp_interface_type_config',
-				'graphql_wp_mutation_type_config',
-				'graphql_wp_object_type_config',
-				'graphql_custom_scalar_config',
-				'graphql_wp_union_type_config',
-			];
-
-			foreach ( $config_hooks as $hook ) {
-				add_filter( $hook, [ self::class, 'resolve_graphql_config' ] );
-			}
-		}
-
-		/**
 		 * Adds backwards compatibility for lazy-loaded configs added in WPGraphQL versions 2.3.0 and later.
 		 *
 		 * Specifically resolves `description` and `deprecationReason` in configs and any nested configs.
