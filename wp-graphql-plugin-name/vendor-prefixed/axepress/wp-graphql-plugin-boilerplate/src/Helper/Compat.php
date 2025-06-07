@@ -34,7 +34,7 @@ if (!class_exists('\WPGraphQL\PluginName\Vendor\AxeWP\GraphQL\Helper\Compat')) {
              * Recursively resolve nested configuration arrays.
              * Some keys contain arrays of configurations that might also contain lazy-loaded values.
              */
-            $nested_configs = ['args', 'connections', 'connectionArgs', 'connectionFields', 'fields', 'inputFields', 'outputFields', 'values'];
+            $nested_configs = ['args', 'connections', 'connectionArgs', 'connectionFields', 'edgeFields', 'fields', 'inputFields', 'outputFields', 'values'];
             foreach ($nested_configs as $nested_key) {
                 // Skip if the key doesn't exist or isn't an array.
                 if (!isset($config[$nested_key]) || !is_array($config[$nested_key])) {
@@ -58,17 +58,17 @@ if (!class_exists('\WPGraphQL\PluginName\Vendor\AxeWP\GraphQL\Helper\Compat')) {
             // @phpstan-ignore function.alreadyNarrowedType (`WPGraphQL::is_introspection_query()` is only available in WPGraphQL 1.28.0+)
             $has_introspection_check = method_exists(\WPGraphQL::class, 'is_introspection_query');
             $is_introspection_query = $has_introspection_check ? \WPGraphQL::is_introspection_query() : false;
-            foreach ($introspection_keys as $key) {
+            foreach ($introspection_keys as $introspection_key) {
                 // Skip if the key doesn't need to be resolved.
-                if (!isset($config[$key]) || !is_callable($config[$key])) {
+                if (!isset($config[$introspection_key]) || !is_callable($config[$introspection_key])) {
                     continue;
                 }
                 // If we 're _sure_ we are not introspecting, we can safely set the value to null.
                 if ($has_introspection_check && !$is_introspection_query) {
-                    $config[$key] = null;
+                    $config[$introspection_key] = null;
                     continue;
                 }
-                $config[$key] = $config[$key]();
+                $config[$introspection_key] = $config[$introspection_key]();
             }
             return $config;
         }

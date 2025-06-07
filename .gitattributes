@@ -3,7 +3,6 @@
 /bin export-ignore
 /docker export-ignore
 /docs export-ignore
-/phpstan export-ignore
 /tests export-ignore
 /wp-graphql-plugin-name export-ignore
 
@@ -18,3 +17,4 @@
 /phpstan.neon.dist export-ignore
 /phpunit.xml.dist export-ignore
 /wp-graphql-plugin-boilerplate.php export-ignore
+/README.md export-ignore

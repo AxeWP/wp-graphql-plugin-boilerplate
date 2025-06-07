@@ -3,6 +3,7 @@
 ## [Unreleased]
 * feat: Add support for lazy-loaded configuration values (e.g., descriptions) using callables, with compatibility layer for older WPGraphQL versions.
 * chore: Update Composer dependencies.
+* chore: misc code cleanup and formatting.
 
 ## v0.1.0
 * feat: Enabled strict type declarations across all PHP files

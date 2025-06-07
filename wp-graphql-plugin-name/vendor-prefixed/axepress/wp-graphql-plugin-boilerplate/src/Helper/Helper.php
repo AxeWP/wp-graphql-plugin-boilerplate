@@ -16,8 +16,6 @@ if (!class_exists('\WPGraphQL\PluginName\Vendor\AxeWP\GraphQL\Helper\Helper')) {
     {
         /**
          * The hook prefix for the plugin.
-         *
-         * @var string
          */
         public static string $hook_prefix;
         /**

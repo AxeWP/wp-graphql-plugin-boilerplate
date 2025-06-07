@@ -1,7 +1,8 @@
 <?xml version="1.0"?>
-<ruleset name="WordPress Coding Standards for WPGraphQL Plugins">
+<ruleset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="WordPress Coding Standards for WPGraphQL Plugins" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/squizlabs/PHP_CodeSniffer/master/phpcs.xsd">
 	<description>Sniffs for plugins created with WPGraphQL Plugin Boilerplate.</description>
-	<!-- What to scan -->
+
+	<!-- What to scan: include any root-level PHP files, and the /src folder -->
 	<file>./access-functions.php</file>
 	<file>./wp-graphql-plugin-name.php</file>
 	<file>./activation.php</file>
@@ -42,19 +43,30 @@
 
 	<!-- Rules: WPGraphQL Coding Standards -->
 	<!-- https://github.com/AxeWP/WPGraphQL-Coding-Standards/WPGraphQL/ruleset.xml -->
-	<rule ref="WPGraphQL" />
+	<rule ref="WPGraphQL">
+		<!-- Deprecated: @todo remove in WPCS v4 -->
+		<exclude name="WordPressVIPMinimum.JS"/>
+		<exclude name="Generic.Functions.CallTimePassByReference" />
+	</rule>
 
 	<!-- Individual rule configuration -->
 	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
 		<properties>
-			<!-- Value: replace the function, class, and variable prefixes used. Separate multiple prefixes with a comma. -->
-			<property name="prefixes" type="array" value="wp_graphql, WPGraphQL\PluginName, graphql_pb, WPGRAPHQL_PB" />
+			<!-- Value: replace the function, class, and variable prefixes used.-->
+			<property name="prefixes" type="array">
+				<element value="wp_graphql" />
+				<element value="WPGraphQL\PluginName" />
+				<element value="graphql_pb" />
+				<element value="WPGRAPHQL_PB" />
+			</property>
 		</properties>
 	</rule>
 	<rule ref="WordPress.WP.I18n">
 		<properties>
-			<!-- Value: replace the text domain used. -->
-			<property name="text_domain" type="array" value="wp-graphql-plugin-name"/>
+			<property name="text_domain" type="array">
+				<!-- Value: replace the text domain used. -->
+				<element value="wp-graphql-plugin-name" />
+			</property>
 		</properties>
 	</rule>
 </ruleset>

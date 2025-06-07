@@ -73,19 +73,19 @@ if ( ! class_exists( '\AxeWP\GraphQL\Helper\Compat' ) ) {
 			$has_introspection_check = method_exists( \WPGraphQL::class, 'is_introspection_query' );
 			$is_introspection_query  = $has_introspection_check ? \WPGraphQL::is_introspection_query() : false;
 
-			foreach ( $introspection_keys as $key ) {
+			foreach ( $introspection_keys as $introspection_key ) {
 				// Skip if the key doesn't need to be resolved.
-				if ( ! isset( $config[ $key ] ) || ! is_callable( $config[ $key ] ) ) {
+				if ( ! isset( $config[ $introspection_key ] ) || ! is_callable( $config[ $introspection_key ] ) ) {
 					continue;
 				}
 
 				// If we 're _sure_ we are not introspecting, we can safely set the value to null.
 				if ( $has_introspection_check && ! $is_introspection_query ) {
-					$config[ $key ] = null;
+					$config[ $introspection_key ] = null;
 					continue;
 				}
 
-				$config[ $key ] = $config[ $key ]();
+				$config[ $introspection_key ] = $config[ $introspection_key ]();
 			}
 
 			return $config;
