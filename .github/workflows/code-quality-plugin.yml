@@ -39,12 +39,16 @@ jobs:
           working-directory: ./wp-graphql-plugin-name
           composer-options: "--no-progress"
 
-      - name: Configure local dependency
+      - name: Setup WordPress
         run: |
-          composer config repositories.local '{"type": "path", "url": "../", "options": {"symlink": false}}'
-          composer require axepress/wp-graphql-plugin-boilerplate:@dev
+          cp .env.dist .env
+          composer run install-stan-env
+          cp -R . /tmp/wordpress/wp-content/plugins/wp-graphql-plugin-name
+          rm -rf /tmp/wordpress/wp-content/plugins/wp-graphql-plugin-name/vendor/axepress/wp-graphql-plugin-boilerplate
+          cp -R .. /tmp/wordpress/wp-content/plugins/wp-graphql-plugin-name/vendor/axepress/wp-graphql-plugin-boilerplate
+          composer run-script strauss
         working-directory: ./wp-graphql-plugin-name
 
       - name: Run PHPStan
-        working-directory: ./wp-graphql-plugin-name
-        run: composer run-script phpstan -- -vvv
+        working-directory: /tmp/wordpress/wp-content/plugins/wp-graphql-plugin-name
+        run: composer run-script phpstan
