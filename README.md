@@ -20,7 +20,7 @@ Inspired by the following projects and their contributors:
 * Default folder structure that mirrors WPGraphQL.
 * Helper classes, interfaces, methods, and traits to make it easier to register new GraphQL types.
 * Dependency management with [Composer](https://getcomposer.org/).
-* Code sniffing with [PHPCS](https://github.com/squizlabs/PHP_CodeSniffer), [WordPress Coding Standards](https://developer.wordpress.org/coding-standards/wordpress-coding-standards/), and [Automattic's WordPress VIP Coding Standards](https://github.com/Automattic/VIP-Coding-Standards)
+* Code sniffing with [PHPCS](https://github.com/PHPCSStandards/PHP_CodeSniffer), [WordPress Coding Standards](https://developer.wordpress.org/coding-standards/wordpress-coding-standards/), and [Automattic's WordPress VIP Coding Standards](https://github.com/Automattic/VIP-Coding-Standards)
 * Static Analysis with [PHPStan](https://phpstan.org/)
 * WPUnit Testing with [Codeception](http://codeception.com/) and [WPBrowser](https://wpbrowser.wptestkit.dev/).
 * [Docker](https://www.docker.com/) image generation.
