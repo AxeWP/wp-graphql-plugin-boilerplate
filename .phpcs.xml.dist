@@ -13,8 +13,8 @@
 	<exclude-pattern>/node_modules/</exclude-pattern>
 
 	<!-- How to scan: include CLI args so you don't need to pass them manually -->
-	<!-- Usage instructions: https://github.com/squizlabs/PHP_CodeSniffer/wiki/Usage -->
-	<!-- Annotated ruleset: https://github.com/squizlabs/PHP_CodeSniffer/wiki/Annotated-ruleset.xml -->
+	<!-- Usage instructions: https://github.com/PHPCSStandards/PHP_CodeSniffer/wiki/Usage -->
+	<!-- Annotated ruleset: https://github.com/PHPCSStandards/PHP_CodeSniffer/wiki/Annotated-Ruleset -->
 	<arg value="sp"/>
 	<!-- Show sniff and progress -->
 	<arg name="basepath" value="./"/>
