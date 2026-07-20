@@ -1,34 +1,49 @@
+# https://phpstan.org/config-reference
+
 parameters:
-		level: 8
-		checkExplicitMixedMissingReturn: true
-		checkFunctionNameCase: true
-		checkInternalClassCaseSensitivity: true
-		checkTooWideReturnTypesInProtectedAndPublicMethods: true
-		inferPrivatePropertyTypeFromConstructor: true
-		polluteScopeWithAlwaysIterableForeach: false
-		polluteScopeWithLoopInitialAssignments: false
-		reportAlwaysTrueInLastCondition: true
-		reportStaticMethodSignatures: true
-		reportWrongPhpDocTypeInVarTag: true
-		treatPhpDocTypesAsCertain: false
-		stubFiles:
-			# Simulate added properties
-			- phpstan/class-wp-post-type.stub
-			- phpstan/class-wp-taxonomy.stub
-		bootstrapFiles:
-			- phpstan/constants.php
-			- wp-graphql-plugin-name.php
-			- access-functions.php
-			- activation.php
-			- deactivation.php
-		paths:
-			- wp-graphql-plugin-name.php
-			- access-functions.php
-			- activation.php
-			- deactivation.php
-			- src/
-		scanFiles:
-			- vendor/axepress/wp-graphql-stubs/wp-graphql-stubs.php
-		scanDirectories:
-			- src/
-			- vendor-prefixed/axepress/wp-graphql-plugin-boilerplate/src/
+	# Rules
+	treatPhpDocTypesAsCertain: false
+	inferPrivatePropertyTypeFromConstructor: true
+	checkExplicitMixedMissingReturn: true
+	checkFunctionNameCase: true
+	checkInternalClassCaseSensitivity: true
+	checkTooWideReturnTypesInProtectedAndPublicMethods: true
+	polluteScopeWithAlwaysIterableForeach: false
+	polluteScopeWithLoopInitialAssignments: false
+	reportAlwaysTrueInLastCondition: true
+	reportStaticMethodSignatures: true
+	reportWrongPhpDocTypeInVarTag: true
+
+	# Configuration
+	level: 8
+	tmpDir: tests/_output
+	phpVersion:
+		min: 70400
+		max: 80500
+	stubFiles:
+		- phpstan/class-wp-post-type.stub
+		- phpstan/class-wp-taxonomy.stub
+	bootstrapFiles:
+		- phpstan/constants.php
+		- wp-graphql-plugin-name.php
+		- access-functions.php
+		- activation.php
+		- deactivation.php
+	paths:
+		- wp-graphql-plugin-name.php
+		- access-functions.php
+		- activation.php
+		- deactivation.php
+		- src/
+	excludePaths:
+		analyse:
+			- tests/
+			- vendor/
+			- vendor-prefixed (?)
+		analyseAndScan:
+			- node_modules (?)
+	scanFiles:
+		- vendor/axepress/wp-graphql-stubs/wp-graphql-stubs.php
+	scanDirectories:
+		- src/
+		- vendor-prefixed/axepress/wp-graphql-plugin-boilerplate/src/

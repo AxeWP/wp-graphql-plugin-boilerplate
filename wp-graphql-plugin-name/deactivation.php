@@ -10,15 +10,13 @@
  *
  * This cleans up data that WPGraphQL stores.
  */
-function graphql_pb_deactivation_callback(): callable {
-	return static function (): void {
+function graphql_pb_deactivation_callback(): void {
 
-		// Fire an action when WPGraphQL is de-activating.
-		do_action( 'graphql_pb_deactivate' );
+	// Fire an action when WPGraphQL is de-activating.
+	do_action( 'graphql_pb_deactivate' );
 
-		// Delete data during activation.
-		graphql_pb_delete_data();
-	};
+	// Delete data during activation.
+	graphql_pb_delete_data();
 }
 
 /**

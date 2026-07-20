@@ -9,83 +9,43 @@
 		"axepress/wp-graphql-plugin-boilerplate": "dev-main"
 	},
 	"require-dev": {
-		"lucatume/wp-browser": "<3.5",
-		"codeception/lib-innerbrowser": "^1.0",
-		"codeception/module-asserts": "^1.0",
-		"codeception/module-cli": "^1.0",
-		"codeception/module-db": "^1.0",
-		"codeception/module-filesystem": "^1.0",
-		"codeception/module-phpbrowser": "^1.0",
-		"codeception/module-rest": "^2.0",
-		"codeception/module-webdriver": "^1.0",
-		"codeception/phpunit-wrapper": "^9.0",
-		"codeception/util-universalframework": "^1.0",
-		"phpunit/phpunit": "^9.0",
-		"wp-graphql/wp-graphql-testcase": "^2.3",
-		"phpstan/phpstan": "^1.2",
+		"axepress/wp-graphql-cs": "^2.0.0",
+		"axepress/wp-graphql-stubs": "^2.3.0",
 		"phpstan/extension-installer": "^1.1",
-		"szepeviktor/phpstan-wordpress": "^1.0",
-		"axepress/wp-graphql-stubs": "^1.12.2",
-		"axepress/wp-graphql-cs": "^2.0.0-beta",
-		"wp-cli/wp-cli-bundle": "^2.8.1",
-		"php-coveralls/php-coveralls": "^2.5",
-		"phpcompatibility/php-compatibility": "dev-develop as 9.9.9"
+		"phpstan/phpstan": "^2.0",
+		"phpstan/phpstan-deprecation-rules": "^2.0.1",
+		"phpstan/phpstan-phpunit": "^2.0",
+		"phpunit/phpunit": "^11.5",
+		"szepeviktor/phpstan-wordpress": "^2.0",
+		"wp-phpunit/wp-phpunit": "^7.0",
+		"yoast/phpunit-polyfills": "^4.0"
 	},
 	"config": {
 		"allow-plugins": {
 			"dealerdirect/phpcodesniffer-composer-installer": true,
 			"phpstan/extension-installer": true
 		},
-		"platform": {
-			"php": "7.4"
-		},
 		"process-timeout": 0,
 		"optimize-autoloader": true
 	},
 	"autoload": {
-		"files": [
-			"access-functions.php"
-		],
+		"files": [ "access-functions.php" ],
 		"psr-4": {
 			"WPGraphQL\\PluginName\\": "src/"
 		},
-		"classmap": [
-			"vendor-prefixed/"
-		]
+		"classmap": [ "vendor-prefixed/" ]
 	},
 	"autoload-dev": {
 		"psr-4": {
-			"Tests\\WPGraphQL\\PluginName\\": "tests/_support/"
+			"Tests\\WPGraphQL\\PluginName\\": "tests/phpunit/"
 		}
 	},
 	"scripts": {
 		"init-plugin": "bash vendor/bin/init-wpgraphql-plugin.sh",
-		"install-test-env": "bash bin/install-test-env.sh",
-		"install-stan-env": "bash bin/install-stan-env.sh",
-		"docker-build": "bash bin/run-docker.sh build",
-		"docker-run": "bash bin/run-docker.sh run",
-		"docker-destroy": "docker-compose down",
-		"build-and-run": [
-			"@docker-build",
-			"@docker-run"
-		],
-		"build-app": "@docker-build -a",
-		"build-test": "@docker-build -t",
-		"run-app": "@docker-run -a",
-		"run-test": "@docker-run -t",
-		"lint": "vendor/bin/phpcs",
-		"phpcs-i": [
-			"php ./vendor/bin/phpcs -i"
-		],
-		"check-cs": [
-			"php ./vendor/bin/phpcs src"
-		],
-		"fix-cs": [
-			"php ./vendor/bin/phpcbf src"
-		],
-		"phpstan": [
-			"vendor/bin/phpstan analyze --ansi --memory-limit=1G"
-		],
+		"lint": "phpcs",
+		"format": "phpcbf",
+		"phpstan": "phpstan analyse --memory-limit=1G",
+		"test": "vendor/bin/phpunit -c phpunit.xml.dist",
 		"strauss-install": [
 			"test -f ./bin/strauss.phar || curl -o bin/strauss.phar -L -C - https://github.com/BrianHenryIE/strauss/releases/download/0.17.0/strauss.phar"
 		],
@@ -94,12 +54,8 @@
 			"@php bin/strauss.phar",
 			"composer dump-autoload --optimize"
 		],
-		"post-install-cmd": [
-			"@strauss"
-		],
-		"post-update-cmd": [
-			"@strauss"
-		]
+		"post-install-cmd": [ "@strauss" ],
+		"post-update-cmd": [ "@strauss" ]
 	},
 	"extra": {
 		"strauss": {
@@ -109,11 +65,9 @@
 			"constant_prefix": "GRAPHQL_PB_",
 			"include_modified_date": false,
 			"delete_vendor_files": true,
-			"packages": [
-				"axepress/wp-graphql-plugin-boilerplate"
-			],
+			"packages": [ "axepress/wp-graphql-plugin-boilerplate" ],
 			"excluded_from_prefix": {
-				"file_patterns": ["/psr.*/"]
+				"file_patterns": [ "/psr.*/" ]
 			}
 		}
 	},
@@ -123,17 +77,13 @@
 			"/.*",
 			"!.wordpress-org",
 			"bin",
-			"docker",
 			"docs",
 			"phpstan",
 			"plugin-build",
 			"tests",
 			"!vendor",
-			"/codeception.dist.yml",
-			"/codeception.yml",
 			"/composer.json",
 			"/composer.lock",
-			"/docker-compose.yml",
 			"/phpstan.neon.dist",
 			"/phpunit.xml.dist",
 			"/README.md"

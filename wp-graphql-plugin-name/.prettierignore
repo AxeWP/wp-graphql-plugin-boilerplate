@@ -1,0 +1,7 @@
+build
+node_modules
+tests/_output
+vendor
+vendor-prefixed
+package-lock.json
+composer.lock

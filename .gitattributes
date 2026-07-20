@@ -1,20 +1,25 @@
+# Automatically normalize line endings.
+* text=auto
+
+# Directories and files not needed when this package is installed via Composer.
 /.github export-ignore
 /assets export-ignore
 /bin export-ignore
-/docker export-ignore
 /docs export-ignore
 /tests export-ignore
+/vendor export-ignore
 /wp-graphql-plugin-name export-ignore
 
-/.coveralls export-ignore
-/.distignore export-ignore
-/.dockerignore export-ignore
-/.env.dist export-ignore
-/.gitattributes export-ignore
-/.gitignore export-ignore
-/.phpcs.xml.dist export-ignore
+# Don't include the dotfiles for distribution.
+/.* export-ignore
+
+# Root files that are not needed for distribution.
 /composer.lock export-ignore
 /phpstan.neon.dist export-ignore
-/phpunit.xml.dist export-ignore
-/wp-graphql-plugin-boilerplate.php export-ignore
 /README.md export-ignore
+
+# Mark docs as documentation for GitHub Linguist.
+/CHANGELOG.md linguist-documentation
+
+# Keep the license file.
+/LICENSE linguist-documentation

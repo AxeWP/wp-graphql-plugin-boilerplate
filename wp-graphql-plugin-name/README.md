@@ -4,14 +4,14 @@
 
 @todo Your description here
 
-* [Join the WPGraphQL community on Slack.](https://join.slack.com/t/wp-graphql/shared_invite/zt-3vloo60z-PpJV2PFIwEathWDOxCTTLA)
-* [Documentation](#usage)
+- [Join the WPGraphQL community on Slack.](https://join.slack.com/t/wp-graphql/shared_invite/zt-3vloo60z-PpJV2PFIwEathWDOxCTTLA)
+- [Documentation](#usage)
 
 ## System Requirements
 
-* PHP 7.4+
-* WordPress 6.0+
-* WPGraphQL 1.8.0+
+- PHP 7.4+
+- WordPress 6.0+
+- WPGraphQL 1.8.0+
 
 ## Quick Install
 
@@ -28,10 +28,19 @@
 
 ## Testing
 
-1. Update your `.env` file to your testing environment specifications.
-2. Run `composer install-test-env` to create the test environment.
-3. Run your test suite with [Codeception](https://codeception.com/docs/02-GettingStarted#Running-Tests).
-E.g. `vendor/bin/codecept run wpunit` will run all WPUnit tests.
+This plugin uses [PHPUnit](https://phpunit.de/) and [`@wordpress/env`](https://www.npmjs.com/package/@wordpress/env) (wp-env) to run its test suite in a local WordPress environment.
+
+1. Install [Node](https://nodejs.org/) (see `.nvmrc` for the version) and [Docker](https://www.docker.com/).
+2. Run `composer install` and `npm install`.
+3. Start the test environment with `npm run wp-env:test start`.
+4. Run the test suite with `npm run test:php`.
+
+To lint and run static analysis:
+
+- `composer lint` (PHPCS) / `composer format` (auto-fix)
+- `composer phpstan`
+
+The equivalent `npm run lint:php`, `npm run lint:php:fix`, and `npm run lint:php:stan` scripts run the same commands inside the wp-env container.
 
 ## Credits
 

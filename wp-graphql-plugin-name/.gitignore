@@ -29,6 +29,7 @@ auth.json
 
 # Composer deps
 vendor
+vendor-prefixed
 
 # NPM deps
 node_modules
@@ -50,3 +51,11 @@ build/
 
 # Rector
 rector.php
+
+# WP Env local overrides
+.wp-env.override.json
+.wp-env.test.override.json
+
+# Test output (PHPUnit coverage reports)
+tests/_output/*
+!tests/_output/.gitkeep
