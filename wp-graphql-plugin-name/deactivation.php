@@ -15,7 +15,7 @@ function graphql_pb_deactivation_callback(): void {
 	// Fire an action when WPGraphQL is de-activating.
 	do_action( 'graphql_pb_deactivate' );
 
-	// Delete data during activation.
+	// Delete data during deactivation.
 	graphql_pb_delete_data();
 }
 
