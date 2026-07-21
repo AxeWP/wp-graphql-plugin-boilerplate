@@ -24,47 +24,9 @@ jobs:
   schema-linter:
     name: Lint WPGraphQL Schema
     if: github.event_name != 'pull_request' || github.event.pull_request.draft == false
-    runs-on: ubuntu-24.04
-    timeout-minutes: 15
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
-        with:
-          show-progress: ${{ runner.debug == '1' && 'true' || 'false' }}
-          persist-credentials: false
-
-      - name: Set up PHP
-        uses: shivammathur/setup-php@f3e473d116dcccaddc5834248c87452386958240 # v2.37.2
-        with:
-          php-version: '8.2'
-          coverage: none
-          tools: composer:v2
-
-      - name: Install Composer dependencies
-        uses: ramsey/composer-install@65e4f84970763564f46a70b8a54b90d033b3bdda # v4.0.0
-
-      - name: Setup Node.js
-        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
-        with:
-          node-version-file: '.nvmrc'
-          cache: 'npm'
-
-      - name: Install npm dependencies
-        run: npm ci
-
-      - name: Start the Docker testing environment
-        uses: nick-fields/retry@ad984534de44a9489a53aefd81eb77f87c70dc60 # v4.0.0
-        with:
-          timeout_minutes: 10
-          max_attempts: 3
-          command: npm run wp-env:test start
-
-      # Written straight into the bind-mounted plugin directory so it lands on the host.
-      - name: Generate the static schema
-        run: >
-          npm run wp-env:test -- run cli wp graphql generate-static-schema
-          /var/www/html/wp-content/plugins/wp-graphql-plugin-name/tests/_output/schema.graphql
-
-      - name: Lint the static schema
-        run: npm run lint:schema
+    uses: AxeWP/plugin-infra/.github/workflows/reusable-graphql-schema-linter.yml@main
+    with:
+      php-version: '8.2'
+      plugin-slug: 'wp-graphql-plugin-name'
+      # Enable once a release has published a schema.graphql asset, otherwise the download fails.
+      # previous-schema-url: 'https://github.com/AxeWP/wp-graphql-plugin-name/releases/latest/download/schema.graphql'
