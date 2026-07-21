@@ -31,6 +31,9 @@
 			"phpstan/extension-installer": true
 		},
 		"optimize-autoloader": true,
+		"platform": {
+			"php": "7.4"
+		},
 		"process-timeout": 0,
 		"sort-packages": true
 	},

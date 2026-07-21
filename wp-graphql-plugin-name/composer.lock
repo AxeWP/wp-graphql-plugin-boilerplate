@@ -12,7 +12,7 @@
             "dist": {
                 "type": "path",
                 "url": "../../wp-graphql-plugin-boilerplate",
-                "reference": "e0dee25055cd8945a2ce7661c6ce92c621cc6dcf"
+                "reference": "d55e95ca4413c1c4ba79cf1da2c2e51b9e77c313"
             },
             "require": {
                 "php": ">=7.4"

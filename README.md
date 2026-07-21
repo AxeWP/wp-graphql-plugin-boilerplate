@@ -52,7 +52,7 @@ composer require axewp/wp-graphql-plugin-boilerplate
 "scripts": {
   "pre-prefix-namespaces": [
     "test -d vendor-prefixed || mkdir vendor-prefixed",
-    "test -f ./bin/strauss.phar || curl -o bin/strauss.phar -L -C - https://github.com/BrianHenryIE/strauss/releases/download/0.22.2/strauss.phar"
+    "test -f ./bin/strauss.phar || curl -o bin/strauss.phar -L -C - https://github.com/BrianHenryIE/strauss/releases/download/0.28.1/strauss.phar"
   ],
   "prefix-namespaces": [
     "@php bin/strauss.phar",
