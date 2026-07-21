@@ -8,11 +8,12 @@
 /**
  * Runs when the plugin is activated.
  */
-function graphql_pb_activation_callback(): callable {
-	return static function (): void {
-		do_action( 'graphql_pb_activate' );
+function graphql_pb_activation_callback(): void {
+	// Activation can run before `graphql_init`, so the constants may not be defined yet.
+	graphql_pb_constants();
 
-		// store the current version of the plugin.
-		update_option( 'wp_graphql_pb_version', WPGRAPHQL_PB_VERSION );
-	};
+	do_action( 'graphql_pb_activate' );
+
+	// store the current version of the plugin.
+	update_option( 'wp_graphql_pb_version', WPGRAPHQL_PB_VERSION );
 }

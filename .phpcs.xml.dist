@@ -1,6 +1,10 @@
 <?xml version="1.0"?>
-<ruleset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="Coding Standards for WPGraphQL Plugin Boilerplate" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/squizlabs/PHP_CodeSniffer/master/phpcs.xsd">
-	<description>Sniffs for the WPGraphQL plugin ecosystem </description>
+<ruleset
+	name="Coding Standards for WPGraphQL Plugin Boilerplate"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/PHPCSStandards/PHP_CodeSniffer/master/phpcs.xsd"
+>
+	<description>Sniffs for the WPGraphQL plugin ecosystem</description>
 
 	<!-- What to scan: include any root-level PHP files, and the /src folder -->
 	<file>./wp-graphql-plugin-name/access-functions.php</file>
@@ -9,52 +13,61 @@
 	<file>./wp-graphql-plugin-name/deactivation.php</file>
 	<file>./wp-graphql-plugin-name/src/</file>
 	<file>./src/</file>
-	<exclude-pattern>/vendor/</exclude-pattern>
-	<exclude-pattern>/node_modules/</exclude-pattern>
 
-	<!-- How to scan: include CLI args so you don't need to pass them manually -->
-	<!-- Usage instructions: https://github.com/PHPCSStandards/PHP_CodeSniffer/wiki/Usage -->
-	<!-- Annotated ruleset: https://github.com/PHPCSStandards/PHP_CodeSniffer/wiki/Annotated-Ruleset -->
-	<arg value="sp"/>
+	<exclude-pattern>**/node_modules/**</exclude-pattern>
+	<exclude-pattern>**/vendor/**</exclude-pattern>
+	<exclude-pattern>wp-graphql-plugin-name/vendor-prefixed/**</exclude-pattern>
+
+	<!--
+		How to scan: include CLI args so you don't need to pass them manually
+		Usage instructions: https://github.com/PHPCSStandards/PHP_CodeSniffer/wiki/Usage
+	-->
 	<!-- Show sniff and progress -->
-	<arg name="basepath" value="./"/>
+	<arg value="sp" />
 	<!-- Strip the file paths down to the relevant bit -->
-	<arg name="colors"/>
-	<arg name="extensions" value="php"/>
-	<!-- Whenever possible, cache the scan results and re-use those for unchanged files on the next scan. -->
-	<arg name="cache" value="phpcs-cache.json" />
+	<arg name="basepath" value="./" />
+	<!-- Enable colors in report -->
+	<arg name="colors" />
+	<!-- Only lint php files by default -->
+	<arg name="extensions" value="php" />
+	<!-- Cache the scan results for reuse. -->
+	<arg name="cache" value="tests/_output/phpcs-cache.json" />
 	<!-- Enables parallel processing when available for faster results. -->
-	<arg name="parallel" value="20"/>
+	<arg name="parallel" value="20" />
 	<!-- Set severity to 1 to see everything that isn't effectively turned off. -->
 	<arg name="severity" value="1" />
 
-	<!-- Ruleset Config: set these to match your project constraints-->
+	<!-- Ruleset Config: set these to match your project constraints. -->
 
 	<!--
 		Tests for PHP version compatibility.
 		https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards#Recomended-additional-rulesets
 	-->
-	<config name="testVersion" value="7.4-"/>
+	<config name="testVersion" value="7.4-" />
 
 	<!--
 		Tests for WordPress version compatibility.
 		https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/wiki/Customizable-sniff-properties
 	-->
-	<config name="minimum_wp_version" value="6.0"/>
+	<config name="minimum_wp_version" value="6.0" />
 
 	<!-- Rules: WPGraphQL Coding Standards -->
 	<!-- https://github.com/AxeWP/WPGraphQL-Coding-Standards/WPGraphQL/ruleset.xml -->
 	<rule ref="WPGraphQL">
 		<!-- Deprecated: @todo remove in WPCS v4 -->
-		<exclude name="WordPressVIPMinimum.JS"/>
+		<exclude name="WordPressVIPMinimum.JS" />
 		<exclude name="Generic.Functions.CallTimePassByReference" />
 	</rule>
 
-	<!-- Individual rule configuration -->
+	<!--
+		Plugin-specific customizations.
+		https://github.com/WordPress/WordPress-Coding-Standards/wiki/Customizable-sniff-properties
+	-->
+	<!-- Allowed plugin prefixes -->
 	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
 		<properties>
 			<property name="prefixes" type="array">
-			<!-- Value: replace the function, class, and variable prefixes used.-->
+				<!-- Value: replace the function, class, and variable prefixes used. -->
 				<element value="AxeWP\GraphQL" />
 				<element value="wp_graphql" />
 				<element value="WPGraphQL\PluginName" />
@@ -64,6 +77,7 @@
 			</property>
 		</properties>
 	</rule>
+
 	<rule ref="WordPress.WP.I18n">
 		<properties>
 			<property name="text_domain" type="array">

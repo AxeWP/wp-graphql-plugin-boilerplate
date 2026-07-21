@@ -19,12 +19,11 @@
 	"require-dev": {
 		"axepress/wp-graphql-cs": "^2.0.0",
 		"axepress/wp-graphql-stubs": "^2.3.0",
-		"phpcompatibility/php-compatibility": "dev-develop as 9.9.9",
 		"phpstan/extension-installer": "^1.1",
 		"phpstan/phpstan-deprecation-rules": "^2.0.1",
 		"phpstan/phpstan": "^2.0",
 		"szepeviktor/phpstan-wordpress": "^2.0",
-		"wp-cli/wp-cli-bundle": "^2.8.1"
+		"wp-cli/wp-cli-bundle": "^2.12.0"
 	},
 	"config": {
 		"allow-plugins": {
@@ -32,6 +31,9 @@
 			"phpstan/extension-installer": true
 		},
 		"optimize-autoloader": true,
+		"platform": {
+			"php": "7.4"
+		},
 		"process-timeout": 0,
 		"sort-packages": true
 	},
@@ -42,17 +44,17 @@
 	},
 	"scripts": {
 		"create-plugin": "bash bin/create-wpgraphql-plugin.sh",
-		"init-plugin": "bash bin/init-wpgraphql-plugin.sh",
-		"install-test-env": "cd wp-graphql-plugin-name && composer install-test-env",
-		"install-stan-env": "cd wp-graphql-plugin-name && composer --working-dir=wp-graphql-plugin-name/ install-stan-env",
-		"codecept-run": "cd wp-graphql-plugin-name && vendor/bin/codecept run -c wp-graphql-plugin-name --",
-		"codecept-build": "cd wp-graphql-plugin-name && /vendor/bin/codecept build -c wp-graphql-plugin-name --",
-		"lint": "vendor/bin/phpcs",
-		"phpcs-i": "php ./vendor/bin/phpcs -i",
-		"check-cs": "php ./vendor/bin/phpcs --standard=.phpcs.xml.dist",
-		"fix-cs": "php ./vendor/bin/phpcbf --standard=.phpcs.xml.dist",
+		"lint": "php ./vendor/bin/phpcs",
+		"format": "php ./vendor/bin/phpcbf",
 		"phpstan": "phpstan analyze --ansi --memory-limit=1G",
+		"test": "cd wp-graphql-plugin-name && npm run test:php",
 		"install-project-deps": "@composer --working-dir=wp-graphql-plugin-name/ install --no-dev --optimize-autoloader",
+		"post-install-cmd": [
+			"@composer --working-dir=wp-graphql-plugin-name/ install"
+		],
+		"post-update-cmd": [
+			"@composer --working-dir=wp-graphql-plugin-name/ install"
+		],
 		"update-project-deps": "@composer --working-dir=wp-graphql-plugin-name/ update",
 		"outdated-project-deps": "@composer --working-dir=wp-graphql-plugin-name/ outdated -D"
 	},

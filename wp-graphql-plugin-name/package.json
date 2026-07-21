@@ -1,0 +1,32 @@
+{
+	"name": "wp-graphql-plugin-name",
+	"private": true,
+	"engines": {
+		"node": ">=24.12.0",
+		"npm": ">=11.14.1"
+	},
+	"allowScripts": {
+		"fs-ext-extra-prebuilt@2.2.7": true
+	},
+	"scripts": {
+		"build:dev": "node -e \"process.exit(0)\"",
+		"format": "prettier --write .",
+		"lint:php": "wp-env --config=.wp-env.test.json run cli --env-cwd=wp-content/plugins/wp-graphql-plugin-name/ composer run lint",
+		"lint:php:fix": "wp-env --config=.wp-env.test.json run cli --env-cwd=wp-content/plugins/wp-graphql-plugin-name/ composer run format",
+		"lint:php:stan": "wp-env --config=.wp-env.test.json run cli --env-cwd=wp-content/plugins/wp-graphql-plugin-name/ composer run phpstan",
+		"lint:schema": "graphql-schema-linter --except=relay-connection-types-spec,relay-page-info-spec tests/_output/schema.graphql",
+		"test:php": "wp-env --config=.wp-env.test.json run cli --env-cwd=wp-content/plugins/wp-graphql-plugin-name/ vendor/bin/phpunit -c phpunit.xml.dist",
+		"wp-env": "wp-env",
+		"wp-env:cli": "wp-env run cli --env-cwd=wp-content/plugins/wp-graphql-plugin-name/",
+		"wp-env:test": "wp-env --config=.wp-env.test.json"
+	},
+	"devDependencies": {
+		"@wordpress/env": "^11.11.0",
+		"@wordpress/prettier-config": "^4.51.0",
+		"graphql": "^16.11.0",
+		"graphql-schema-linter": "^3.0.1"
+	},
+	"overrides": {
+		"prettier": "npm:wp-prettier@^3"
+	}
+}

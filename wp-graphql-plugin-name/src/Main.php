@@ -31,7 +31,7 @@ if ( ! class_exists( 'WPGraphQL\PluginName\Main' ) ) :
 				// You cant test a singleton.
 				// @codeCoverageIgnoreStart .
 				if ( ! function_exists( 'is_plugin_active' ) ) {
-					require_once ABSPATH . 'wp-admin/includes/plugin.php'; // @phpstan-ignore requireOnce.fileNotFound
+					require_once ABSPATH . 'wp-admin/includes/plugin.php';
 				}
 				self::$instance = new self();
 				self::$instance->includes();

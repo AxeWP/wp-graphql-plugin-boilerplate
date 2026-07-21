@@ -1,36 +1,48 @@
+# https://phpstan.org/config-reference
+
 parameters:
-		level: 8
-		checkExplicitMixedMissingReturn: true
-		checkFunctionNameCase: true
-		checkInternalClassCaseSensitivity: true
-		checkTooWideReturnTypesInProtectedAndPublicMethods: true
-		inferPrivatePropertyTypeFromConstructor: true
-		polluteScopeWithAlwaysIterableForeach: false
-		polluteScopeWithLoopInitialAssignments: false
-		reportAlwaysTrueInLastCondition: true
-		reportStaticMethodSignatures: true
-		reportWrongPhpDocTypeInVarTag: true
-		treatPhpDocTypesAsCertain: false
-		stubFiles:
-			# Simulate added properties
-			- phpstan/class-wp-post-type.stub
-			- phpstan/class-wp-taxonomy.stub
-		bootstrapFiles:
-			- wp-graphql-plugin-name/phpstan/constants.php
-			- wp-graphql-plugin-name/activation.php
-			- wp-graphql-plugin-name/deactivation.php
-			- wp-graphql-plugin-name/wp-graphql-plugin-name.php
-			- wp-graphql-plugin-name/access-functions.php
-		paths:
-			- wp-graphql-plugin-name/activation.php
-			- wp-graphql-plugin-name/deactivation.php
-			- wp-graphql-plugin-name/wp-graphql-plugin-name.php
-			- wp-graphql-plugin-name/access-functions.php
-			- wp-graphql-plugin-name/vendor-prefixed/
-			- wp-graphql-plugin-name/src/
-			- src/
-		scanFiles:
-			- vendor/axepress/wp-graphql-stubs/wp-graphql-stubs.php
-		excludePaths:
-			analyseAndScan:
-				- vendor/*
+	# Rules
+	treatPhpDocTypesAsCertain: false
+	inferPrivatePropertyTypeFromConstructor: true
+	checkExplicitMixedMissingReturn: true
+	checkFunctionNameCase: true
+	checkInternalClassCaseSensitivity: true
+	checkTooWideReturnTypesInProtectedAndPublicMethods: true
+	polluteScopeWithAlwaysIterableForeach: false
+	polluteScopeWithLoopInitialAssignments: false
+	reportAlwaysTrueInLastCondition: true
+	reportStaticMethodSignatures: true
+	reportWrongPhpDocTypeInVarTag: true
+
+	# Configuration
+	level: 8
+	# Site owners can define these before the plugin loads, so their values are not fixed.
+	dynamicConstantNames:
+		- WPGRAPHQL_PB_AUTOLOAD
+
+	tmpDir: tests/_output
+	stubFiles:
+		# Simulate added properties
+		- phpstan/class-wp-post-type.stub
+		- phpstan/class-wp-taxonomy.stub
+	bootstrapFiles:
+		- wp-graphql-plugin-name/phpstan/constants.php
+		- wp-graphql-plugin-name/activation.php
+		- wp-graphql-plugin-name/deactivation.php
+		- wp-graphql-plugin-name/wp-graphql-plugin-name.php
+		- wp-graphql-plugin-name/access-functions.php
+	paths:
+		- wp-graphql-plugin-name/activation.php
+		- wp-graphql-plugin-name/deactivation.php
+		- wp-graphql-plugin-name/wp-graphql-plugin-name.php
+		- wp-graphql-plugin-name/access-functions.php
+		- wp-graphql-plugin-name/src/
+		- src/
+	scanFiles:
+		- vendor/axepress/wp-graphql-stubs/wp-graphql-stubs.php
+	scanDirectories:
+		- wp-graphql-plugin-name/vendor-prefixed/axepress/wp-graphql-plugin-boilerplate/src/
+	excludePaths:
+		analyseAndScan:
+			- vendor/*
+			- node_modules/*

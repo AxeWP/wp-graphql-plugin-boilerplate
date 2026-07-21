@@ -22,7 +22,7 @@ if ( ! class_exists( '\AxeWP\GraphQL\Helper\Compat' ) ) {
 		 * @template T of array
 		 * @param T $config The config to check.
 		 *
-		 * @return T&array{description?:string,deprecationReason?:string} The config with lazy-loaded configs replaced with their values.
+		 * @return T The config with lazy-loaded configs replaced with their values.
 		 */
 		public static function resolve_graphql_config( array $config ): array {
 			// Bail if WPGraphQL version is less than 2.3.0, since WPGraphQL can handle it.
@@ -88,6 +88,7 @@ if ( ! class_exists( '\AxeWP\GraphQL\Helper\Compat' ) ) {
 				$config[ $introspection_key ] = $config[ $introspection_key ]();
 			}
 
+			// @phpstan-ignore return.type (the resolved keys are written back in place, so the shape of `T` is preserved. PHPStan cannot track that through offset assignment on a generic array.)
 			return $config;
 		}
 	}

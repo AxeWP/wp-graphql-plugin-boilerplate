@@ -31,7 +31,7 @@ class Settings {
 	 * {@inheritDoc}
 	 */
 	public static function init(): void {
-		add_action( 'init', [ self::class, 'register_settings' ] );
+		add_action( 'admin_init', [ self::class, 'register_settings' ] );
 	}
 
 	/**

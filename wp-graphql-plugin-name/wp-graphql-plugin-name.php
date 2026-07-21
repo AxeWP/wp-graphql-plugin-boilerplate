@@ -29,12 +29,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-// If the codeception remote coverage file exists, require it.
-// This file should only exist locally or when CI bootstraps the environment for testing.
-if ( file_exists( __DIR__ . '/c3.php' ) ) {
-	require_once __DIR__ . '/c3.php';
-}
-
 // Run this function when the plugin is activated.
 if ( file_exists( __DIR__ . '/activation.php' ) ) {
 	require_once __DIR__ . '/activation.php';
@@ -44,7 +38,7 @@ if ( file_exists( __DIR__ . '/activation.php' ) ) {
 // Run this function when the plugin is deactivated.
 if ( file_exists( __DIR__ . '/deactivation.php' ) ) {
 	require_once __DIR__ . '/deactivation.php';
-	register_activation_hook( __FILE__, 'graphql_pb_deactivation_callback' );
+	register_deactivation_hook( __FILE__, 'graphql_pb_deactivation_callback' );
 }
 
 /**
@@ -102,6 +96,8 @@ function graphql_pb_init(): void {
 
 	if ( empty( $not_ready ) && defined( 'WPGRAPHQL_PB_PLUGIN_DIR' ) ) {
 		require_once WPGRAPHQL_PB_PLUGIN_DIR . 'src/Main.php';
+
+		\WPGraphQL\PluginName\Main::instance();
 		return;
 	}
 
