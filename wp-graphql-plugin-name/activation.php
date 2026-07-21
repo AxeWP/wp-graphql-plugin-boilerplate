@@ -9,6 +9,9 @@
  * Runs when the plugin is activated.
  */
 function graphql_pb_activation_callback(): void {
+	// Activation can run before `graphql_init`, so the constants may not be defined yet.
+	graphql_pb_constants();
+
 	do_action( 'graphql_pb_activate' );
 
 	// store the current version of the plugin.

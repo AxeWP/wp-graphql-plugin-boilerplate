@@ -38,7 +38,7 @@ if ( file_exists( __DIR__ . '/activation.php' ) ) {
 // Run this function when the plugin is deactivated.
 if ( file_exists( __DIR__ . '/deactivation.php' ) ) {
 	require_once __DIR__ . '/deactivation.php';
-	register_activation_hook( __FILE__, 'graphql_pb_deactivation_callback' );
+	register_deactivation_hook( __FILE__, 'graphql_pb_deactivation_callback' );
 }
 
 /**

@@ -16,6 +16,10 @@ parameters:
 
 	# Configuration
 	level: 8
+	# Site owners can define these before the plugin loads, so their values are not fixed.
+	dynamicConstantNames:
+		- WPGRAPHQL_PB_AUTOLOAD
+
 	tmpDir: tests/_output
 	phpVersion:
 		min: 70400

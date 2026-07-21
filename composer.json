@@ -49,6 +49,12 @@
 		"phpstan": "phpstan analyze --ansi --memory-limit=1G",
 		"test": "cd wp-graphql-plugin-name && npm run test:php",
 		"install-project-deps": "@composer --working-dir=wp-graphql-plugin-name/ install --no-dev --optimize-autoloader",
+		"post-install-cmd": [
+			"@composer --working-dir=wp-graphql-plugin-name/ install"
+		],
+		"post-update-cmd": [
+			"@composer --working-dir=wp-graphql-plugin-name/ install"
+		],
 		"update-project-deps": "@composer --working-dir=wp-graphql-plugin-name/ update",
 		"outdated-project-deps": "@composer --working-dir=wp-graphql-plugin-name/ outdated -D"
 	},
