@@ -22,9 +22,9 @@
 	},
 	"require-dev": {
 		"axepress/wp-graphql-cs": "^2.0.0",
-		"axepress/wp-graphql-stubs": "^2.18.0",
+		"axepress/wp-graphql-stubs": "^2.19.0",
 		"phpstan/extension-installer": "^1.1",
-		"phpstan/phpstan": "^2.0",
+		"phpstan/phpstan": "^2.2",
 		"phpstan/phpstan-deprecation-rules": "^2.0.5",
 		"phpstan/phpstan-phpunit": "^2.0",
 		"phpunit/phpunit": "^9.0",
