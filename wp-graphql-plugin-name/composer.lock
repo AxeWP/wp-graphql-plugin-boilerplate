@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e38cb3893c5864bfc9477f7173f3405b",
+    "content-hash": "990d1a4610cf6005bbf9b8b660b32d9e",
     "packages": [
         {
             "name": "axepress/wp-graphql-plugin-boilerplate",
@@ -203,16 +203,16 @@
         },
         {
             "name": "axepress/wp-graphql-stubs",
-            "version": "v2.22.2",
+            "version": "v2.22.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/AxeWP/wp-graphql-stubs.git",
-                "reference": "33d4311d78a456910d2ca8db28afae1525a75a35"
+                "reference": "236a944cbe2cdf71144378b20d67b4ee9f22f181"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/AxeWP/wp-graphql-stubs/zipball/33d4311d78a456910d2ca8db28afae1525a75a35",
-                "reference": "33d4311d78a456910d2ca8db28afae1525a75a35",
+                "url": "https://api.github.com/repos/AxeWP/wp-graphql-stubs/zipball/236a944cbe2cdf71144378b20d67b4ee9f22f181",
+                "reference": "236a944cbe2cdf71144378b20d67b4ee9f22f181",
                 "shasum": ""
             },
             "require": {
@@ -244,7 +244,7 @@
             ],
             "support": {
                 "issues": "https://github.com/AxeWP/wp-graphql-stubs/issues",
-                "source": "https://github.com/AxeWP/wp-graphql-stubs/tree/v2.22.2"
+                "source": "https://github.com/AxeWP/wp-graphql-stubs/tree/v2.22.3"
             },
             "funding": [
                 {
@@ -252,7 +252,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-09-05T04:12:35+00:00"
+            "time": "2026-09-09T04:25:45+00:00"
         },
         {
             "name": "dealerdirect/phpcodesniffer-composer-installer",
@@ -1192,11 +1192,11 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "2.2.13",
+            "version": "2.2.14",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/9ba9ac76ee9c5cf5b56d58eb5deec6315b7a0260",
-                "reference": "9ba9ac76ee9c5cf5b56d58eb5deec6315b7a0260",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/9c672e7a8e791dfc3d30e55f683e73fc0b63a3ac",
+                "reference": "9c672e7a8e791dfc3d30e55f683e73fc0b63a3ac",
                 "shasum": ""
             },
             "require": {
@@ -1252,7 +1252,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-09-03T20:38:19+00:00"
+            "time": "2026-09-12T21:39:33+00:00"
         },
         {
             "name": "phpstan/phpstan-deprecation-rules",
@@ -3169,7 +3169,7 @@
         },
         {
             "name": "wp-phpunit/wp-phpunit",
-            "version": "7.1.0",
+            "version": "7.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-phpunit/wp-phpunit.git",
