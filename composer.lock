@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fc23e9c747a5d098f668d48a7e0cc842",
+    "content-hash": "aeedcf0dd9a0cddb72b663aea7084429",
     "packages": [],
     "packages-dev": [
         {
@@ -119,16 +119,16 @@
         },
         {
             "name": "axepress/wp-graphql-stubs",
-            "version": "v2.23.0",
+            "version": "v2.23.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/AxeWP/wp-graphql-stubs.git",
-                "reference": "d2628124d7a39f419b39d9f57c5f5a920cb0a156"
+                "reference": "af779998bfa1f30dee1e128591ad78da1aa86115"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/AxeWP/wp-graphql-stubs/zipball/d2628124d7a39f419b39d9f57c5f5a920cb0a156",
-                "reference": "d2628124d7a39f419b39d9f57c5f5a920cb0a156",
+                "url": "https://api.github.com/repos/AxeWP/wp-graphql-stubs/zipball/af779998bfa1f30dee1e128591ad78da1aa86115",
+                "reference": "af779998bfa1f30dee1e128591ad78da1aa86115",
                 "shasum": ""
             },
             "require": {
@@ -160,7 +160,7 @@
             ],
             "support": {
                 "issues": "https://github.com/AxeWP/wp-graphql-stubs/issues",
-                "source": "https://github.com/AxeWP/wp-graphql-stubs/tree/v2.23.0"
+                "source": "https://github.com/AxeWP/wp-graphql-stubs/tree/v2.23.1"
             },
             "funding": [
                 {
@@ -168,7 +168,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-09-16T04:36:46+00:00"
+            "time": "2026-09-23T04:33:22+00:00"
         },
         {
             "name": "composer/ca-bundle",
@@ -1865,11 +1865,11 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "2.2.14",
+            "version": "2.2.16",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/9c672e7a8e791dfc3d30e55f683e73fc0b63a3ac",
-                "reference": "9c672e7a8e791dfc3d30e55f683e73fc0b63a3ac",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/46a6d9060e5a7763adfcc21ebcb8b504ebdbcb92",
+                "reference": "46a6d9060e5a7763adfcc21ebcb8b504ebdbcb92",
                 "shasum": ""
             },
             "require": {
@@ -1925,7 +1925,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-09-12T21:39:33+00:00"
+            "time": "2026-09-25T09:31:51+00:00"
         },
         {
             "name": "phpstan/phpstan-deprecation-rules",
